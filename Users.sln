@@ -16,7 +16,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Users.Persistence", "Users.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Users.UnitTests", "Users.UnitTests\Users.UnitTests.csproj", "{50179AE9-C22A-4483-83E2-ED2838E84384}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notes.WebApp", "Notes.WebApp\Notes.WebApp.csproj", "{FFFB6AAE-0084-485D-A8B0-6C858CBCB7E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Users.WebApp", "Users.WebApp\Users.WebApp.csproj", "{FFFB6AAE-0084-485D-A8B0-6C858CBCB7E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

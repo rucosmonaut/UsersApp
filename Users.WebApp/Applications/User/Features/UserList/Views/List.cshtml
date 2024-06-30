@@ -1,0 +1,56 @@
+﻿@model Users.WebApp.Applications.User.Features.UserList.Views.ListViewModel
+
+@using Users.WebApp.Applications.User.Features.UserList
+@using Users.WebApp.Applications.User.Features.UserList.Views.Partials
+
+@{
+    ViewBag.Title = Resources.UserList_PageTitle;
+    Layout = "_Layout";
+}
+
+@section scripts
+{
+}
+
+@section body
+{
+
+    <div>
+        <h2>@ViewBag.Title</h2>
+    </div>
+
+    <div class="mt-4">
+        <button class="btn btn-primary"
+                id="createUserButton"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#createUser">
+                <i class="fa fa-plus"></i> @Resources.CreateUserButton_Label
+            </button>
+    </div>
+
+    <div class="mt-4">
+        <table class="table table-hover">
+                <tbody>
+                    @foreach(var user in Model.UserList)
+                        {
+                            @await Html.PartialAsync(
+                                       "Partials/UserPartial",
+                                       model: user)
+                        }
+                </tbody>
+            </table>
+    </div>
+
+    @Html.Partial(
+        partialViewName: "CreateUserFormModalPartial",
+        model: new CreateUserFormModalPartialViewModel(
+            createUserActionUrl: "fdsf"))
+
+    @Html.Partial(
+        partialViewName: "EditUserFormModalPartial",
+        model: new EditUserFormModalPartialViewModel(
+            editUserActionUrl: "fdsfdsf",
+            email: "fdsf",
+            userId: "fdsf"))
+}

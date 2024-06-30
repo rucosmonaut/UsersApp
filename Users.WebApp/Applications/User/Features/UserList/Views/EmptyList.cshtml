@@ -1,0 +1,51 @@
+﻿@model Users.WebApp.Applications.User.Features.UserList.Views.EmptyListViewModel
+
+@using Users.WebApp.Applications.User.Features.UserList
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = Resources.EmptyList_PageTitle;
+}
+
+@section scripts
+{
+    <link href="@Url.Content(
+                    contentPath: "~/Applications/User/Features/UserList/Content/Css/empty-list-styles.css")"
+        rel="stylesheet"
+        type="text/css"/>
+}
+
+@section body
+{
+    <div class="page-header">
+        <h2>@ViewBag.Title</h2>
+    </div>
+    <div class="empty-list-wrap" id="emptyDomainListContainer ">
+        <div class="row">
+            <div class="buffer-bottom-small col-lg-4 col-md-5 col-sm-5">
+                <img alt="empty domain list icon"
+                    class="img-responsive"
+                    src="@Url.Content(
+                             contentPath: "~/Applications/User/Features/UserList/Content/Img/empty_list_icon.svg")"/>
+            </div>
+            <div class="col-lg-8 col-md-7 col-sm-7">
+                <h3>@Resources.EmptyList_Header</h3>
+                
+                <p>@Resources.EmptyList_Description</p>
+                
+                <button class="btn btn-primary"
+                    id="createUserButton"
+                    type="button"
+                    data-toggle="modal"
+                    data-target="#createUser">
+                    <i class="fa fa-plus"></i> @Resources.EmptyList_CreateUserButton
+                </button>
+
+            </div>
+        </div>
+    </div>
+    
+    @Html.Partial(
+            partialViewName: "CreateUserFormModalPartial",
+            model: Model.CreateUserFormModalPartialViewModel)
+}
