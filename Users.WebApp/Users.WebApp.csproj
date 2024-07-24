@@ -8,17 +8,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Applications\Shared\" />
       <Folder Include="Applications\User\Features\UserList\Adapters\Helpers\" />
-      <Folder Include="CommandHandlers\" />
-      <Folder Include="Commands\" />
-      <Folder Include="Content\Css\" />
       <Folder Include="Content\Js\jquery-validation-unobtrusive\" />
       <Folder Include="Content\Js\jquery-validation\" />
       <Folder Include="Content\Js\jquery\" />
-      <Folder Include="Extensions\" />
-      <Folder Include="Queries\" />
-      <Folder Include="QueryHandles\" />
     </ItemGroup>
 
     <ItemGroup>
