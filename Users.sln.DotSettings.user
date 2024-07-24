@@ -5,5 +5,7 @@
   &lt;Project Location="C:\work\ИПР\Users\Users.UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;Users.UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Presentation_002FUsers_002EWebApp_002FApplications_002FUser_002FFeatures_002FUserList_002FResources/@EntryIndexedValue">True</s:Boolean>
+	
+	
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/Initialized/@EntryValue">True</s:Boolean>
 	</wpf:ResourceDictionary>

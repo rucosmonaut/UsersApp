@@ -37,6 +37,11 @@ public class UpdateUserCommandHandler
 
         this
             ._dbContext
+            .Users
+            .Update(entity);
+
+        this
+            ._dbContext
             .SaveChanges();
     }
 }

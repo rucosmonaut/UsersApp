@@ -4,6 +4,5 @@ using Users.Domain;
 
 public interface IUserListQueryHandler
 {
-    Task<List<User>> HandleAsync(
-        string partnerId);
+    Task<List<User>> HandleAsync();
 }

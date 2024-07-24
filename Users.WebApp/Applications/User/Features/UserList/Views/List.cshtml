@@ -1,16 +1,12 @@
 ﻿@model Users.WebApp.Applications.User.Features.UserList.Views.ListViewModel
 
 @using Users.WebApp.Applications.User.Features.UserList
-@using Users.WebApp.Applications.User.Features.UserList.Views.Partials
 
 @{
     ViewBag.Title = Resources.UserList_PageTitle;
     Layout = "_Layout";
 }
 
-@section scripts
-{
-}
 
 @section body
 {
@@ -21,36 +17,43 @@
 
     <div class="mt-4">
         <button class="btn btn-primary"
-                id="createUserButton"
-                type="button"
-                data-bs-toggle="modal"
-                data-bs-target="#createUser">
-                <i class="fa fa-plus"></i> @Resources.CreateUserButton_Label
-            </button>
+            id="createUserButton"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#createUser">
+            <i class="fa fa-plus"></i> @Resources.CreateUserButton_Label
+        </button>
     </div>
 
     <div class="mt-4">
         <table class="table table-hover">
                 <tbody>
-                    @foreach(var user in Model.UserList)
+                    @foreach(var userPartialViewModel in Model.UserPartialViewModelList)
                         {
                             @await Html.PartialAsync(
-                                       "Partials/UserPartial",
-                                       model: user)
+                                       partialViewName: "Partials/UserPartial",
+                                       model: userPartialViewModel)
                         }
                 </tbody>
             </table>
     </div>
 
-    @Html.Partial(
-        partialViewName: "CreateUserFormModalPartial",
-        model: new CreateUserFormModalPartialViewModel(
-            createUserActionUrl: "fdsf"))
+    @await Html.PartialAsync(
+               partialViewName: "CreateUserFormModalPartial",
+               model: Model.CreateUserFormModalPartialViewModel)
 
-    @Html.Partial(
-        partialViewName: "EditUserFormModalPartial",
-        model: new EditUserFormModalPartialViewModel(
-            editUserActionUrl: "fdsfdsf",
-            email: "fdsf",
-            userId: "fdsf"))
+    @await Html.PartialAsync(
+               partialViewName: "EditUserFormModalPartial",
+               model: Model.EditUserFormModalPartialViewModel)
+
+        @await Html.PartialAsync(
+                   partialViewName: "DeleteUserFormModalPartial",
+                   model: Model.DeleteUserFormModalPartialViewModel)
+}
+
+@section scripts
+{
+    <script type="text/javascript"
+        src="~/Content/Js/bootstrap-modal-data-mapper.js">
+    </script>
 }

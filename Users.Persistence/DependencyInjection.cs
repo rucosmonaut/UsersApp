@@ -11,7 +11,7 @@ public static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        var connectionString = configuration["DbConnection"];
+        var connectionString = "Data Source=Users.db";
         services.AddDbContext<UsersDbContext>(options =>
         {
             options.UseSqlite(connectionString);

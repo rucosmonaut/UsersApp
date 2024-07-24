@@ -1,11 +1,21 @@
 namespace Users.WebApp.Applications.User.Features.UserList.Infrastructure;
 
 using OneOf;
+using Users.Application.Notes.Commands.UpdateUser;
+using Users.WebApp.Applications.User.Features.UserList.Infrastructure.Helpers;
 
 internal class EditSenderCommandHandler
     : IEditSenderCommandHandler
 {
-    public Task<
+    private readonly IUpdateUserCommandHandler updateUserCommandHandler;
+
+    public EditSenderCommandHandler(
+        IUpdateUserCommandHandler updateUserCommandHandler)
+    {
+        this.updateUserCommandHandler = updateUserCommandHandler;
+    }
+
+    public async Task<
             OneOf<
                 IEditSenderCommandHandler.EditedResult,
                 IEditSenderCommandHandler.UserNotFoundResult>>
@@ -13,6 +23,11 @@ internal class EditSenderCommandHandler
             string userId,
             string email)
     {
-        throw new NotImplementedException();
+        await updateUserCommandHandler.HandleAsync(
+            id: Guid.Parse(userId),
+            email: email,
+            professionList: ProffesionBuilder.BuildProfessionList());
+
+        return new IEditSenderCommandHandler.EditedResult();
     }
 }

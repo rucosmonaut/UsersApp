@@ -66,4 +66,22 @@
     <data name="CreateUserButton_Label" xml:space="preserve">
         <value>Пригласить в кабинет</value>
     </data>
+    <data name="CreateUserFormModal_UserProffesionslnput_Label" xml:space="preserve">
+        <value>Професии</value>
+    </data>
+    <data name="CreateUserFormModal_UserProffesionslnput_HelpText" xml:space="preserve">
+        <value>Выберете одну или больше професий</value>
+    </data>
+    <data name="DeleteUserFormModal_Header" xml:space="preserve">
+        <value>Удалить пользователя?</value>
+    </data>
+    <data name="DeleteUserFormModal_Description" xml:space="preserve">
+        <value>Вы уверены, что хотите удалить?</value>
+    </data>
+    <data name="DeleteUserFormModal_CancelButton_Label" xml:space="preserve">
+        <value>Отмена</value>
+    </data>
+    <data name="DeleteUserFormModal_SubmitButton_Label" xml:space="preserve">
+        <value>Удалить</value>
+    </data>
 </root>

@@ -1,21 +1,18 @@
 namespace Users.WebApp.Applications.User.Features.UserList.Views.Partials;
 
+using Users.WebApp.Models;
+
 public sealed class EditUserFormModalPartialViewModel
 {
     public EditUserFormModalPartialViewModel(
         string editUserActionUrl,
-        string email,
-        string userId)
+        List<ListItemViewModel> professionsListItemViewModelList)
     {
         this.EditUserActionUrl = editUserActionUrl;
-        this.Email = email;
-        this.UserId = userId;
+        this.ProfessionsListItemViewModelList = professionsListItemViewModelList;
     }
 
     public string EditUserActionUrl { get; set; }
 
-
-    public string Email { get; set; }
-
-    public string UserId { get; set; }
+    public List<ListItemViewModel> ProfessionsListItemViewModelList { get; }
 }

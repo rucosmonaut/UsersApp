@@ -16,6 +16,7 @@
       <Folder Include="Content\Js\jquery-validation-unobtrusive\" />
       <Folder Include="Content\Js\jquery-validation\" />
       <Folder Include="Content\Js\jquery\" />
+      <Folder Include="Extensions\" />
       <Folder Include="Queries\" />
       <Folder Include="QueryHandles\" />
     </ItemGroup>
@@ -27,6 +28,10 @@
 
     <ItemGroup>
       <PackageReference Include="JetBrains.Annotations" Version="2024.2.0-eap1" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.6">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
       <PackageReference Include="OneOf" Version="3.0.271" />
     </ItemGroup>
 
@@ -106,6 +111,19 @@
         <AutoGen>True</AutoGen>
         <DependentUpon>Resources.resx</DependentUpon>
       </Compile>
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <None Update="Users.db-shm">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Users.db-wal">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Users.db">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

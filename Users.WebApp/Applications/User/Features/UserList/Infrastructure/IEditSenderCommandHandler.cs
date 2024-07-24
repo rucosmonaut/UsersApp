@@ -12,11 +12,7 @@ public interface IEditSenderCommandHandler
             string userId,
             string email);
 
-    public class EditedResult
-    {
-    }
+    public class EditedResult;
 
-    public class UserNotFoundResult
-    {
-    }
+    public class UserNotFoundResult;
 }

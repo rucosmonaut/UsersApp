@@ -11,5 +11,6 @@ public interface IViewListActionModelQueryHandler
                 EmptyListViewModel>>
         HandleAsync(
             string createUserActionUrl,
-            string editUserActionUrl);
+            string editUserActionUrl,
+            string deleteUserActionUrl);
 }

@@ -2,6 +2,7 @@ namespace Users.WebApp.Applications.User.Features.UserList.Infrastructure;
 
 using OneOf;
 using Users.Domain;
+using Users.WebApp.Applications.User.Features.UserList.Infrastructure.Helpers;
 
 internal class CreateUserCommandHandler
     : ICreateUserCommandHandler
@@ -19,12 +20,13 @@ internal class CreateUserCommandHandler
                 ICreateUserCommandHandler.AddedResult,
                 ICreateUserCommandHandler.AlreadyExistsResult>>
         HandleAsync(
-            string email,
-            List<Profession> professionList)
+            string email)
     {
+
+
         var userId = await createUserCommandHandler.HandleAsync(
             email: email,
-            professionList: professionList);
+            professionList: ProffesionBuilder.BuildProfessionList());
 
         return new ICreateUserCommandHandler.AddedResult(userId);
     }

@@ -2,6 +2,7 @@ namespace Users.WebApp.Applications.User.Features.UserList;
 
 using Microsoft.AspNetCore.Mvc;
 using Users.WebApp.Applications.User.Features.UserList.Actions.CreateUser;
+using Users.WebApp.Applications.User.Features.UserList.Actions.DeleteUser;
 using Users.WebApp.Applications.User.Features.UserList.Actions.EditUser;
 using Users.WebApp.Applications.User.Features.UserList.Actions.ViewList;
 using Users.WebApp.Applications.User.Features.UserList.Infrastructure;
@@ -15,12 +16,20 @@ public class UserListController
 
     private readonly ICreateUserCommandHandler createUserCommandHandler;
 
+    private readonly IEditSenderCommandHandler editSenderCommandHandler;
+
+    private readonly IDeleteUserCommandHandler deleteUserCommandHandler;
+
     public UserListController(
         IViewListActionModelQueryHandler viewListActionModelQueryHandler,
-        ICreateUserCommandHandler createUserCommandHandler)
+        ICreateUserCommandHandler createUserCommandHandler,
+        IEditSenderCommandHandler editSenderCommandHandler,
+        IDeleteUserCommandHandler deleteUserCommandHandler)
     {
         this.viewListActionModelQueryHandler = viewListActionModelQueryHandler;
         this.createUserCommandHandler = createUserCommandHandler;
+        this.editSenderCommandHandler = editSenderCommandHandler;
+        this.deleteUserCommandHandler = deleteUserCommandHandler;
     }
 
     public async Task<IActionResult> ViewList()
@@ -37,8 +46,12 @@ public class UserListController
                         .Url
                         .Action(
                             action: nameof(this.EditUser),
-                            controller: "UserList")!)
-                .ConfigureAwait(false))
+                            controller: "UserList")!,
+                    deleteUserActionUrl: this
+                        .Url
+                        .Action(
+                            action: nameof(this.DeleteUser),
+                            controller: "UserList")!))
             .Match(
                 listViewModel => this.View(
                     viewName: "List",
@@ -56,8 +69,7 @@ public class UserListController
         return (await this
                 .createUserCommandHandler
                 .HandleAsync(
-                    requestModel.Email)
-                .ConfigureAwait(false))
+                    email: requestModel.Email))
             .Match(
                 addedResult => this
                     .RedirectToAction(
@@ -75,16 +87,36 @@ public class UserListController
         EditUserRequestModel requestModel)
     {
         return (await this
-                .createUserCommandHandler
+                .editSenderCommandHandler
                 .HandleAsync(
-                    requestModel.Email)
-                .ConfigureAwait(false))
+                    requestModel.Id,
+                    requestModel.Email))
             .Match(
-                addedResult => this
+                editedResult => this
                     .RedirectToAction(
                         actionName: nameof(ViewList),
                         controllerName: "UserList"),
-                alreadyExistsResult => this
+                notFoundResult => this
+                    .RedirectToAction(
+                        actionName: nameof(ViewList),
+                        controllerName: "UserList"));
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<ActionResult> DeleteUser(
+        DeleteUserRequestModel requestModel)
+    {
+        return (await this
+                .deleteUserCommandHandler
+                .HandleAsync(
+                    requestModel.Id))
+            .Match(
+                editedResult => this
+                    .RedirectToAction(
+                        actionName: nameof(ViewList),
+                        controllerName: "UserList"),
+                notFoundResult => this
                     .RedirectToAction(
                         actionName: nameof(ViewList),
                         controllerName: "UserList"));

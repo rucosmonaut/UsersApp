@@ -1,62 +1,55 @@
 namespace Users.WebApp.Applications.User.Features.UserList.Adapters;
 
 using OneOf;
+using Users.Domain;
 using Users.WebApp.Applications.User.Features.UserList.Actions.ViewList;
+using Users.WebApp.Applications.User.Features.UserList.Infrastructure;
 using Users.WebApp.Applications.User.Features.UserList.Views;
 using Users.WebApp.Applications.User.Features.UserList.Views.Partials;
+using Users.WebApp.UIHelpers;
 
 internal class ViewListActionModelQueryHandler
     : IViewListActionModelQueryHandler
 {
+    private readonly UserListQueryHandler userListQueryHandler;
+
+    public ViewListActionModelQueryHandler(
+        UserListQueryHandler userListQueryHandler)
+    {
+        this.userListQueryHandler = userListQueryHandler;
+    }
+
     public async Task<OneOf<ListViewModel, EmptyListViewModel>> HandleAsync(
         string createUserActionUrl,
-        string editUserActionUrl)
+        string editUserActionUrl,
+        string deleteUserActionUrl)
     {
-        var userList = new List<UserPartialViewModel>
-        {
-            new UserPartialViewModel(
-                id: "234",
-                email: "test@mail.ru",
-                professions: "Designer, Programmer"
-                ),
-            new UserPartialViewModel(
-                id: "52",
-                email: "test23@mail.ru",
-                professions: "Designer, Programmer"),
-            new UserPartialViewModel(
-                id: "24",
-                email: "324@mail.ru",
-                professions: "Designer, Programmer"),
-            new UserPartialViewModel(
-                id: "34",
-                email: "543@mail.ru",
-                professions: "Designer, Programmer"),
-            new UserPartialViewModel(
-                id: "543",
-                email: "sdf@mail.ru",
-                professions: "Designer, Programmer"),
-            new UserPartialViewModel(
-                id: "432",
-                email: "dsaffsd@fds.ru",
-                professions: "Designer, Programmer"),
-            new UserPartialViewModel(
-                id: "423",
-                email: "324@mail.ru",
-                professions: "Designer, Programmer")
-        };
-
-        await Task.Delay(0);
+        var userList = await userListQueryHandler.HandleAsync();
 
         if (userList.Any())
         {
             return new ListViewModel(
                 createUserFormModalPartialViewModel: new CreateUserFormModalPartialViewModel(
-                    createUserActionUrl: createUserActionUrl),
-                userList: userList);
+                    createUserActionUrl: createUserActionUrl,
+                    professionsListItemViewModelList: EnumHelper.ToListItemViewModelList<Profession>()),
+                userPartialViewModelList: userList
+                    .Select(user => new UserPartialViewModel(
+                        id: user
+                            .Id
+                            .ToString(),
+                        email: user.Email,
+                        professions: string.Join(", ", user.ProfessionList.Select(profession => profession.ToString()))))
+                    .ToList(),
+                editUserFormModalPartialViewModel: new EditUserFormModalPartialViewModel(
+                    editUserActionUrl: editUserActionUrl,
+                    professionsListItemViewModelList: EnumHelper.ToListItemViewModelList<Profession>()),
+                deleteUserFormModalPartialViewModel: new DeleteUserFormModalPartialViewModel(
+                    deleteUserActionUrl: deleteUserActionUrl));
         }
 
         return new EmptyListViewModel(
             createUserFormModalPartialViewModel: new CreateUserFormModalPartialViewModel(
-                createUserActionUrl: createUserActionUrl));
+                createUserActionUrl: createUserActionUrl,
+                professionsListItemViewModelList: EnumHelper.ToListItemViewModelList<Profession>()));
     }
 }

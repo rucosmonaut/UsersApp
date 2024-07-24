@@ -114,6 +114,60 @@ namespace Users.WebApp.Applications.User.Features.UserList {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Выберете одну или больше професий.
+        /// </summary>
+        internal static string CreateUserFormModal_UserProffesionslnput_HelpText {
+            get {
+                return ResourceManager.GetString("CreateUserFormModal_UserProffesionslnput_HelpText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Професии.
+        /// </summary>
+        internal static string CreateUserFormModal_UserProffesionslnput_Label {
+            get {
+                return ResourceManager.GetString("CreateUserFormModal_UserProffesionslnput_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Отмена.
+        /// </summary>
+        internal static string DeleteUserFormModal_CancelButton_Label {
+            get {
+                return ResourceManager.GetString("DeleteUserFormModal_CancelButton_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вы уверены, что хотите удалить?.
+        /// </summary>
+        internal static string DeleteUserFormModal_Description {
+            get {
+                return ResourceManager.GetString("DeleteUserFormModal_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Удалить пользователя?.
+        /// </summary>
+        internal static string DeleteUserFormModal_Header {
+            get {
+                return ResourceManager.GetString("DeleteUserFormModal_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Удалить.
+        /// </summary>
+        internal static string DeleteUserFormModal_SubmitButton_Label {
+            get {
+                return ResourceManager.GetString("DeleteUserFormModal_SubmitButton_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Отмена.
         /// </summary>
         internal static string EditUserFormModal_CancelButton_Label {

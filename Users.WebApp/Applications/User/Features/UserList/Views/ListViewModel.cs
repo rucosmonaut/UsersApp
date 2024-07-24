@@ -6,13 +6,21 @@ public class ListViewModel
 {
     public ListViewModel(
         CreateUserFormModalPartialViewModel createUserFormModalPartialViewModel,
-        List<UserPartialViewModel> userList)
+        EditUserFormModalPartialViewModel editUserFormModalPartialViewModel,
+        List<UserPartialViewModel> userPartialViewModelList,
+        DeleteUserFormModalPartialViewModel deleteUserFormModalPartialViewModel)
     {
         this.CreateUserFormModalPartialViewModel = createUserFormModalPartialViewModel;
-        this.UserList = userList;
+        this.EditUserFormModalPartialViewModel = editUserFormModalPartialViewModel;
+        this.UserPartialViewModelList = userPartialViewModelList;
+        this.DeleteUserFormModalPartialViewModel = deleteUserFormModalPartialViewModel;
     }
 
     public CreateUserFormModalPartialViewModel CreateUserFormModalPartialViewModel { get; }
 
-    public List<UserPartialViewModel> UserList { get; }
+    public EditUserFormModalPartialViewModel EditUserFormModalPartialViewModel { get; }
+
+    public DeleteUserFormModalPartialViewModel DeleteUserFormModalPartialViewModel { get; }
+
+    public List<UserPartialViewModel> UserPartialViewModelList { get; }
 }

@@ -10,8 +10,7 @@ public interface ICreateUserCommandHandler
                 AddedResult,
                 AlreadyExistsResult>>
         HandleAsync(
-            string email,
-            List<Profession> professionList);
+            string email);
 
     public class AddedResult
     {
@@ -24,7 +23,5 @@ public interface ICreateUserCommandHandler
         public Guid UserId { get; }
     }
 
-    public class AlreadyExistsResult
-    {
-    }
+    public abstract class AlreadyExistsResult;
 }
