@@ -1,8 +1,8 @@
-namespace Users.Application.Notes.Commands.DeleteUser;
+namespace Users.Application.Users.Commands.DeleteUser;
 
-using Users.Application.Common.Exceptions;
-using Users.Application.Interfaces;
-using Users.Domain;
+using global::Users.Application.Common.Exceptions;
+using global::Users.Application.Interfaces;
+using global::Users.Domain;
 
 public class DeleteUserCommandHandler
     : IDeleteUserCommandHandler
@@ -18,7 +18,7 @@ public class DeleteUserCommandHandler
     public async Task HandleAsync(
         Guid id)
     {
-        var userEntity = await _dbContext
+        var userEntity = await this._dbContext
             .Users
             .FindAsync(new object[] { id });
 

@@ -1,6 +1,6 @@
 namespace Users.UnitTests.Users.Queries;
 
-using global::Users.Application.Notes.Queries.GetUserList;
+using global::Users.Application.Users.Queries.GetUserList;
 using global::Users.Persistence;
 using global::Users.UnitTests.Common;
 using Shouldly;

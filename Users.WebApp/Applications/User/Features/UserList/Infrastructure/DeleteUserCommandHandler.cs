@@ -5,10 +5,10 @@ using OneOf;
 internal class DeleteUserCommandHandler
     : IDeleteUserCommandHandler
 {
-    private readonly Application.Notes.Commands.DeleteUser.IDeleteUserCommandHandler deleteUserCommandHandler;
+    private readonly Application.Users.Commands.DeleteUser.IDeleteUserCommandHandler deleteUserCommandHandler;
 
     public DeleteUserCommandHandler(
-        Application.Notes.Commands.DeleteUser.IDeleteUserCommandHandler deleteUserCommandHandler)
+        Application.Users.Commands.DeleteUser.IDeleteUserCommandHandler deleteUserCommandHandler)
     {
         this.deleteUserCommandHandler = deleteUserCommandHandler;
     }

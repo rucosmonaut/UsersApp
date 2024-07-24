@@ -1,7 +1,8 @@
 namespace Users.WebApp.Applications.User.Features.UserList;
 
 using Users.Application.Interfaces;
-using Users.Application.Notes.Queries.GetUserList;
+using Users.Application.Users.Commands.UpdateUser;
+using Users.Application.Users.Queries.GetUserList;
 using Users.WebApp.Applications.User.Features.UserList.Actions.ViewList;
 using Users.WebApp.Applications.User.Features.UserList.Adapters;
 using Users.WebApp.Applications.User.Features.UserList.Infrastructure;
@@ -21,21 +22,21 @@ internal class IocConfig
 
         services.AddSingleton<ICreateUserCommandHandler>(
             implementationInstance: new CreateUserCommandHandler(
-                createUserCommandHandler: new Application.Notes.Commands.CreateUser.CreateUserCommandHandler(
+                createUserCommandHandler: new Application.Users.Commands.CreateUser.CreateUserCommandHandler(
                     dbContext: services
                         .BuildServiceProvider()
                         .GetRequiredService<IUsersDbContext>())));
 
         services.AddSingleton<IEditSenderCommandHandler>(
             implementationInstance: new EditSenderCommandHandler(
-                updateUserCommandHandler: new Application.Notes.Commands.UpdateUser.UpdateUserCommandHandler(
+                updateUserCommandHandler: new UpdateUserCommandHandler(
                     dbContext: services
                         .BuildServiceProvider()
                         .GetRequiredService<IUsersDbContext>())));
 
         services.AddSingleton<IDeleteUserCommandHandler>(
             implementationInstance: new DeleteUserCommandHandler(
-                new Application.Notes.Commands.DeleteUser.DeleteUserCommandHandler(
+                new Application.Users.Commands.DeleteUser.DeleteUserCommandHandler(
                     dbContext: services
                         .BuildServiceProvider()
                         .GetRequiredService<IUsersDbContext>())));

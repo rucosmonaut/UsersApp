@@ -1,8 +1,7 @@
 namespace Users.UnitTests.Users.Command;
 
 using global::Users.Application.Common.Exceptions;
-using global::Users.Application.Notes.Commands.CreateUser;
-using global::Users.Application.Notes.Commands.DeleteUser;
+using global::Users.Application.Users.Commands.DeleteUser;
 using global::Users.Domain;
 using global::Users.UnitTests.Common;
 

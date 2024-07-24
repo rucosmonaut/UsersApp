@@ -1,4 +1,4 @@
-namespace Users.Application.Notes.Queries.GetUserList;
+namespace Users.Application.Users.Queries.GetUserList;
 
 public class UserListVm
 {

@@ -1,4 +1,4 @@
-namespace Users.Application.Notes.Commands.DeleteUser;
+namespace Users.Application.Users.Commands.DeleteUser;
 
 public interface IDeleteUserCommandHandler
 {

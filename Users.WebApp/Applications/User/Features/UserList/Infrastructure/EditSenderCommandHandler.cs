@@ -1,7 +1,7 @@
 namespace Users.WebApp.Applications.User.Features.UserList.Infrastructure;
 
 using OneOf;
-using Users.Application.Notes.Commands.UpdateUser;
+using Users.Application.Users.Commands.UpdateUser;
 using Users.WebApp.Applications.User.Features.UserList.Infrastructure.Helpers;
 
 internal class EditSenderCommandHandler

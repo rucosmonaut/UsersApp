@@ -1,6 +1,6 @@
 namespace Users.WebApp.Applications.User.Features.UserList.Infrastructure;
 
-using Users.Application.Notes.Queries.GetUserList;
+using Users.Application.Users.Queries.GetUserList;
 using Users.Domain;
 using Users.WebApp.Applications.User.Features.UserList.Adapters.InfrastructureContract;
 

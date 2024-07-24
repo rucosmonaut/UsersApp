@@ -1,7 +1,7 @@
-namespace Users.Application.Notes.Commands.CreateUser;
+namespace Users.Application.Users.Commands.CreateUser;
 
-using Users.Application.Interfaces;
-using Users.Domain;
+using global::Users.Application.Interfaces;
+using global::Users.Domain;
 
 public class CreateUserCommandHandler
     : ICreateUserCommandHandler
@@ -28,7 +28,8 @@ public class CreateUserCommandHandler
             EditDate = null
         };
 
-        await _dbContext
+        await this
+            ._dbContext
             .Users
             .AddAsync(user);
 

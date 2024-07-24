@@ -1,6 +1,6 @@
-namespace Users.Application.Notes.Commands.UpdateUser;
+namespace Users.Application.Users.Commands.UpdateUser;
 
-using Users.Domain;
+using global::Users.Domain;
 
 public interface IUpdateUserCommandHandler
 {

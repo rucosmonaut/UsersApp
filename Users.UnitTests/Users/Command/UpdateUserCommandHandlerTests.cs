@@ -1,7 +1,7 @@
 namespace Users.UnitTests.Users.Command;
 
 using global::Users.Application.Common.Exceptions;
-using global::Users.Application.Notes.Commands.UpdateUser;
+using global::Users.Application.Users.Commands.UpdateUser;
 using global::Users.Domain;
 using global::Users.UnitTests.Common;
 using Microsoft.EntityFrameworkCore;

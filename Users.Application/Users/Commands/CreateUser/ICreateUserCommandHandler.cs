@@ -1,6 +1,6 @@
-namespace Users.Application.Notes.Commands.CreateUser;
+namespace Users.Application.Users.Commands.CreateUser;
 
-using Users.Domain;
+using global::Users.Domain;
 
 public interface ICreateUserCommandHandler
 {

@@ -1,9 +1,9 @@
-namespace Users.Application.Notes.Commands.UpdateUser;
+namespace Users.Application.Users.Commands.UpdateUser;
 
+using global::Users.Application.Common.Exceptions;
+using global::Users.Application.Interfaces;
+using global::Users.Domain;
 using Microsoft.EntityFrameworkCore;
-using Users.Application.Common.Exceptions;
-using Users.Application.Interfaces;
-using Users.Domain;
 
 public class UpdateUserCommandHandler
     : IUpdateUserCommandHandler
@@ -21,10 +21,11 @@ public class UpdateUserCommandHandler
         string email,
         List<Profession> professionList)
     {
-        var entity = await _dbContext
+        var entity = await this
+            ._dbContext
             .Users
-            .FirstOrDefaultAsync(note =>
-                note.Id == id);
+            .FirstOrDefaultAsync<User>(user =>
+                user.Id == id);
 
         if (entity == null || entity.Id != id)
         {
@@ -34,11 +35,6 @@ public class UpdateUserCommandHandler
         entity.Email = email;
         entity.ProfessionList = professionList;
         entity.EditDate = DateTime.UtcNow;
-
-        this
-            ._dbContext
-            .Users
-            .Update(entity);
 
         this
             ._dbContext

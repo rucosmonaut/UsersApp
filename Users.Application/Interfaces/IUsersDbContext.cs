@@ -1,6 +1,7 @@
 namespace Users.Application.Interfaces;
+
+using global::Users.Domain;
 using Microsoft.EntityFrameworkCore;
-using Users.Domain;
 
 public interface IUsersDbContext
 {

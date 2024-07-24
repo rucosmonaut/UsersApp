@@ -7,10 +7,10 @@ using Users.WebApp.Applications.User.Features.UserList.Infrastructure.Helpers;
 internal class CreateUserCommandHandler
     : ICreateUserCommandHandler
 {
-    private readonly Users.Application.Notes.Commands.CreateUser.ICreateUserCommandHandler createUserCommandHandler;
+    private readonly Application.Users.Commands.CreateUser.ICreateUserCommandHandler createUserCommandHandler;
 
     public CreateUserCommandHandler(
-        Application.Notes.Commands.CreateUser.ICreateUserCommandHandler createUserCommandHandler)
+        Application.Users.Commands.CreateUser.ICreateUserCommandHandler createUserCommandHandler)
     {
         this.createUserCommandHandler = createUserCommandHandler;
     }

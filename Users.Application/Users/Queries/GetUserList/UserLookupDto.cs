@@ -1,6 +1,6 @@
-namespace Users.Application.Notes.Queries.GetUserList;
+namespace Users.Application.Users.Queries.GetUserList;
 
-using Users.Domain;
+using global::Users.Domain;
 
 public class UserLookupDto
 {
