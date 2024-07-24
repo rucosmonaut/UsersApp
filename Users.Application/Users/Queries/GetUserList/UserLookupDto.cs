@@ -20,15 +20,15 @@ public class UserLookupDto
         this.DeletedDate = deletedDate;
     }
 
-    public Guid Id { get; set; }
+    public Guid Id { get; }
 
-    public string Email { get; set; }
+    public string Email { get; }
 
-    public List<Profession> ProfessionList { get; set; }
+    public List<Profession> ProfessionList { get; }
 
-    public DateTime CreationDate { get; set; }
+    public DateTime CreationDate { get; }
 
-    public DateTime? EditDate { get; set; }
+    public DateTime? EditDate { get; }
 
-    public DateTime? DeletedDate { get; set; }
+    public DateTime? DeletedDate { get; }
 }

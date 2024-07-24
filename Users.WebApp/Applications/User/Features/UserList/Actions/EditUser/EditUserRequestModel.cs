@@ -5,8 +5,8 @@ using System.ComponentModel.DataAnnotations;
 public class EditUserRequestModel
 {
     [Required]
-    public string Id { get; set; } = default!;
+    public string Id { get; init; } = default!;
 
     [Required]
-    public string Email { get; set; } = default!;
+    public string Email { get; init; } = default!;
 }

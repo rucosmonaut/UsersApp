@@ -68,8 +68,7 @@ public class UserListController
     {
         return (await this
                 .createUserCommandHandler
-                .HandleAsync(
-                    email: requestModel.Email))
+                .HandleAsync(requestModel.Email))
             .Match(
                 addedResult => this
                     .RedirectToAction(
@@ -83,14 +82,14 @@ public class UserListController
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<ActionResult> EditUser(
+    public ActionResult EditUser(
         EditUserRequestModel requestModel)
     {
-        return (await this
-                .editSenderCommandHandler
-                .HandleAsync(
-                    requestModel.Id,
-                    requestModel.Email))
+        return this
+            .editSenderCommandHandler
+            .Handle(
+                userId: requestModel.Id,
+                email: requestModel.Email)
             .Match(
                 editedResult => this
                     .RedirectToAction(
@@ -109,8 +108,7 @@ public class UserListController
     {
         return (await this
                 .deleteUserCommandHandler
-                .HandleAsync(
-                    requestModel.Id))
+                .HandleAsync(requestModel.Id))
             .Match(
                 editedResult => this
                     .RedirectToAction(

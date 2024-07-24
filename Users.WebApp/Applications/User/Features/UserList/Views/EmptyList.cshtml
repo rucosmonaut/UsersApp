@@ -44,8 +44,8 @@
             </div>
         </div>
     </div>
-    
-    @Html.Partial(
-            partialViewName: "CreateUserFormModalPartial",
-            model: Model.CreateUserFormModalPartialViewModel)
+
+    @await Html.PartialAsync(
+               partialViewName: "CreateUserFormModalPartial",
+               model: Model.CreateUserFormModalPartialViewModel)
 }

@@ -7,8 +7,7 @@ using Microsoft.Extensions.Primitives;
 public class ApplicationFeatureContentFileProvider
     : IFileProvider
 {
-    private static readonly char[] _pathSeparators = new[]
-    {
+    private static readonly char[] _pathSeparators = {
         Path.DirectorySeparatorChar,
         Path.AltDirectorySeparatorChar
     };
@@ -52,4 +51,3 @@ public class ApplicationFeatureContentFileProvider
         throw new NotImplementedException();
     }
 }
-

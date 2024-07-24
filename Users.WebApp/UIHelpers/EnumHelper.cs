@@ -4,7 +4,7 @@ using Users.WebApp.Models;
 
 public static class EnumHelper
 {
-    public static List<ListItemViewModel> ToListItemViewModelList<T> ()
+    public static List<ListItemViewModel> ToListItemViewModelList<T>()
         where T : struct, Enum
     {
         var names = Enum.GetNames<T>();

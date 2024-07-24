@@ -4,7 +4,7 @@ using global::Users.Domain;
 using global::Users.Persistence;
 using Microsoft.EntityFrameworkCore;
 
-internal class UsersContextFactory
+internal static class UsersContextFactory
 {
     internal static Guid UserIdForDelete = Guid.NewGuid();
 

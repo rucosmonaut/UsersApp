@@ -16,15 +16,15 @@ public class UpdateUserCommandHandler
         this._dbContext = dbContext;
     }
 
-    public async Task HandleAsync(
+    public void Handle(
         Guid id,
         string email,
         List<Profession> professionList)
     {
-        var entity = await this
+        var entity = this
             ._dbContext
             .Users
-            .FirstOrDefaultAsync<User>(user =>
+            .FirstOrDefault(user =>
                 user.Id == id);
 
         if (entity == null || entity.Id != id)
@@ -35,6 +35,23 @@ public class UpdateUserCommandHandler
         entity.Email = email;
         entity.ProfessionList = professionList;
         entity.EditDate = DateTime.UtcNow;
+
+        this
+            ._dbContext
+            .Users
+            .Attach(entity);
+
+        this
+            ._dbContext
+            .Users
+            .Entry(entity)
+            .CurrentValues
+            .SetValues(entity);
+
+        this
+            ._dbContext
+            .Users
+            .Entry(entity).State = EntityState.Modified;
 
         this
             ._dbContext

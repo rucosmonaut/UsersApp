@@ -11,7 +11,8 @@ public class GetUsersListQueryHandlerTests
 {
     private readonly UsersDbContext Context;
 
-    public GetUsersListQueryHandlerTests(QueryTestFixture fixture)
+    public GetUsersListQueryHandlerTests(
+        QueryTestFixture fixture)
     {
         Context = fixture.Context;
     }

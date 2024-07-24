@@ -8,7 +8,6 @@ using Microsoft.EntityFrameworkCore;
 public class CreateUserCommandHandlerTests
     : TestCommandBase
 {
-
     [Fact]
     public async Task CreateUserCommandHandler_Success()
     {

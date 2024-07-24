@@ -5,5 +5,5 @@ using System.ComponentModel.DataAnnotations;
 public class CreateUserRequestModel
 {
     [Required]
-    public string Email { get; set; } = default!;
+    public string Email { get; init; } = default!;
 }

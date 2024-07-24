@@ -1,9 +1,5 @@
 namespace Users.WebApp.Configuration;
 
-using Microsoft.EntityFrameworkCore;
-using Users.Application.Interfaces;
-using Users.Persistence;
-
 public static class IocConfig
 {
     public static void ConfigureGlobal(
@@ -15,4 +11,3 @@ public static class IocConfig
             .Configure(services);
     }
 }
-

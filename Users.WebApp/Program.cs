@@ -1,4 +1,3 @@
-
 using Users.Persistence;
 using Users.WebApp.Configuration;
 
@@ -29,7 +28,7 @@ using (var scope = app.Services.CreateScope())
     }
     catch (Exception exception)
     {
-        Console.WriteLine( @"An error occurred while app initialization: {0}", exception);
+        Console.WriteLine(@"An error occurred while app initialization: {0}", exception);
     }
 }
 

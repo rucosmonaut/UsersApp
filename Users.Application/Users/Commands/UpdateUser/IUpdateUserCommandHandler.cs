@@ -4,7 +4,7 @@ using global::Users.Domain;
 
 public interface IUpdateUserCommandHandler
 {
-    Task HandleAsync(
+    void Handle(
         Guid id,
         string email,
         List<Profession> professionList);

@@ -8,5 +8,5 @@ public class UserListVm
         this.Users = users;
     }
 
-    public IList<UserLookupDto> Users { get; set; } = default!;
+    public IList<UserLookupDto> Users { get; }
 }

@@ -2,7 +2,6 @@ namespace Users.UnitTests.Users.Command;
 
 using global::Users.Application.Common.Exceptions;
 using global::Users.Application.Users.Commands.DeleteUser;
-using global::Users.Domain;
 using global::Users.UnitTests.Common;
 
 public class DeleteUserCommandHandlerTests

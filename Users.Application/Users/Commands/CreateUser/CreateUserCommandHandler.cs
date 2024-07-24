@@ -33,7 +33,9 @@ public class CreateUserCommandHandler
             .Users
             .AddAsync(user);
 
-        this._dbContext.SaveChanges();
+        this
+            ._dbContext
+            .SaveChanges();
 
         return user.Id;
     }

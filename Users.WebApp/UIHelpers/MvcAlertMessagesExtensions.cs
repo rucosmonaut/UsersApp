@@ -56,10 +56,10 @@
                 builder.AppendFormat(
                     format: "<div class='alert alert-timeout alert-{0}' id='alertTimeout'>{1}</div>",
                     arg0: cookieKey
-                       .Replace(
+                        .Replace(
                             oldValue: AlertPrefix,
                             newValue: string.Empty)
-                       .ToLower(),
+                        .ToLower(),
                     arg1: HtmlEncoder
                         .Default
                         .Encode(
@@ -76,11 +76,12 @@
                 value: builder.ToString());
         }
 
-        public static HtmlString AlertsTimeoutScript(this HtmlHelper helper)
+        public static HtmlString AlertsTimeoutScript(
+            this HtmlHelper helper)
         {
             const string Script = @"<script type='text/javascript'>" +
-                     @" $(function () { setTimeout (function () { $('.alert-timeout').fadeOut(); }, 5000); });" +
-                     @"</script>";
+                                  @" $(function () { setTimeout (function () { $('.alert-timeout').fadeOut(); }, 5000); });" +
+                                  @"</script>";
 
             return new HtmlString(
                 value: Script);

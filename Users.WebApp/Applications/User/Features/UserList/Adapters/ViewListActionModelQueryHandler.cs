@@ -33,12 +33,13 @@ internal class ViewListActionModelQueryHandler
                     createUserActionUrl: createUserActionUrl,
                     professionsListItemViewModelList: EnumHelper.ToListItemViewModelList<Profession>()),
                 userPartialViewModelList: userList
-                    .Select(user => new UserPartialViewModel(
-                        id: user
-                            .Id
-                            .ToString(),
-                        email: user.Email,
-                        professions: string.Join(", ", user.ProfessionList.Select(profession => profession.ToString()))))
+                    .Select(
+                        selector: user => new UserPartialViewModel(
+                            id: user
+                                .Id
+                                .ToString(),
+                            email: user.Email,
+                            professions: string.Join(", ", user.ProfessionList.Select(profession => profession.ToString()))))
                     .ToList(),
                 editUserFormModalPartialViewModel: new EditUserFormModalPartialViewModel(
                     editUserActionUrl: editUserActionUrl,

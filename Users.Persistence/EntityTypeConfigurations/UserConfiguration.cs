@@ -10,9 +10,11 @@ internal class UserConfiguration : IEntityTypeConfiguration<User>
         EntityTypeBuilder<User> builder)
     {
         builder.HasKey(user => user.Id);
+
         builder
             .HasIndex(user => user.Id)
             .IsUnique();
+
         builder
             .Property(user => user.Email)
             .HasMaxLength(200);

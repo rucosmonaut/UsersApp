@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Razor;
 
 public static class MvcBuilderExtensions
 {
-    public static IMvcBuilder AddApplicationFeatureFolders(
+    public static void AddApplicationFeatureFolders(
         this IMvcBuilder builder)
     {
         builder.AddRazorOptions(
@@ -17,7 +17,6 @@ public static class MvcBuilderExtensions
                 options.AddSharedLocations();
                 options.AddUserApplicationLocations();
             });
-        return builder;
     }
 
     private static void AddSharedLocations(

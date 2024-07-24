@@ -18,16 +18,23 @@ public class DeleteUserCommandHandler
     public async Task HandleAsync(
         Guid id)
     {
-        var userEntity = await this._dbContext
+        var userEntity = await this
+            ._dbContext
             .Users
-            .FindAsync(new object[] { id });
+            .FindAsync(id);
 
         if (userEntity == null || userEntity.Id != id)
         {
             throw new NotFoundException(nameof(User), id);
         }
 
-        this._dbContext.Users.Remove(userEntity);
-        this._dbContext.SaveChanges();
+        this
+            ._dbContext
+            .Users
+            .Remove(userEntity);
+
+        this
+            ._dbContext
+            .SaveChanges();
     }
 }

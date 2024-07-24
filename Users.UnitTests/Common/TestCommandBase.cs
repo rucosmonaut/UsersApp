@@ -7,7 +7,7 @@ public abstract class TestCommandBase
 {
     protected readonly UsersDbContext Context;
 
-    public TestCommandBase()
+    protected TestCommandBase()
     {
         Context = UsersContextFactory.Create();
     }

@@ -1,7 +1,6 @@
 namespace Users.Application.Users.Queries.GetUserList;
 
 using global::Users.Application.Interfaces;
-using global::Users.Domain;
 
 public class GetUserListQueryHandler
     : IGetUserListQueryHandler
@@ -19,7 +18,7 @@ public class GetUserListQueryHandler
         var userList = this
             ._dbContext
             .Users
-            .ToList<User>()
+            .ToList()
             .Select(user => new UserLookupDto(
                 id: user.Id,
                 email: user.Email,

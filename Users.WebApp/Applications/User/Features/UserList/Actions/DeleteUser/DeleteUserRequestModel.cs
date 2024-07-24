@@ -5,5 +5,5 @@ using System.ComponentModel.DataAnnotations;
 public class DeleteUserRequestModel
 {
     [Required]
-    public string Id { get; set; }
+    public required string Id { get; init; }
 }

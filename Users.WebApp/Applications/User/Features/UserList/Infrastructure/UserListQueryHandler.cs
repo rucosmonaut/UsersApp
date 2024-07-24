@@ -19,15 +19,16 @@ internal class UserListQueryHandler
     {
         return (await getUserListQueryHandler.HandleAsync())
             .Users
-            .Select(userVm => new User
-            {
-                Id = userVm.Id,
-                CreationDate = userVm.CreationDate,
-                DeletedDate = userVm.DeletedDate,
-                EditDate = userVm.EditDate,
-                Email = userVm.Email,
-                ProfessionList = userVm.ProfessionList
-            })
+            .Select(
+                selector: userVm => new User
+                {
+                    Id = userVm.Id,
+                    CreationDate = userVm.CreationDate,
+                    DeletedDate = userVm.DeletedDate,
+                    EditDate = userVm.EditDate,
+                    Email = userVm.Email,
+                    ProfessionList = userVm.ProfessionList
+                })
             .ToList();
     }
 }
