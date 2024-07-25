@@ -12,6 +12,17 @@
       <Folder Include="Content\Js\jquery-validation-unobtrusive\" />
       <Folder Include="Content\Js\jquery-validation\" />
       <Folder Include="Content\Js\jquery\" />
+      <Folder Include="runtimes\browser-wasm\nativeassets\net8.0\" />
+      <Folder Include="runtimes\browser\lib\net8.0\" />
+      <Folder Include="runtimes\linux-mips64\native\" />
+      <Folder Include="runtimes\linux-musl-arm64\native\" />
+      <Folder Include="runtimes\linux-musl-s390x\native\" />
+      <Folder Include="runtimes\linux-musl-x64\native\" />
+      <Folder Include="runtimes\linux-ppc64le\native\" />
+      <Folder Include="runtimes\win-arm64\native\" />
+      <Folder Include="runtimes\win-arm\native\" />
+      <Folder Include="runtimes\win-x64\native\" />
+      <Folder Include="runtimes\win-x86\native\" />
     </ItemGroup>
 
     <ItemGroup>
@@ -117,6 +128,17 @@
       <None Update="Users.db">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
+      <None Remove="runtimes\win-x86\native\e_sqlite3.dll" />
+      <None Remove="Users.WebApp.pdb" />
+      <None Remove="Users.WebApp.exe" />
+      <None Remove="Users.WebApp.dll" />
+      <None Remove="Users.Persistence.pdb" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <Content Remove="Users.WebApp.runtimeconfig.json" />
+      <Content Remove="Users.WebApp.deps.json" />
     </ItemGroup>
 
 </Project>

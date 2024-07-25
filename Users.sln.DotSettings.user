@@ -2,7 +2,12 @@
 	<s:Int64 x:Key="/Default/Environment/Hierarchy/Build/BuildTool/MsbuildVersion/@EntryValue">1114112</s:Int64>
 	<s:String x:Key="/Default/Environment/Hierarchy/Build/BuildTool/CustomBuildToolPath/@EntryValue">C:\Program Files\dotnet\sdk\8.0.100\MSBuild.dll</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4acfb672_002Dfb5d_002D495e_002D9407_002D995f331761ad/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetNoteListQueryHandler_Success" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="C:\work\ИПР\Users\Users.UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;Users.UnitTests&amp;gt;" /&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;Project Location="C:\work\ИПР\Users\Users.UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;Users.UnitTests&amp;gt;" /&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;xUnit::A81A37DF-5E9D-421B-B737-573CD8FAC891::net8.0::Users.AcceptanceTests.Users.Applications.Users.Features.UserList.Tests.DataPresentationTests.ShouldShowEmptyList&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+  &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Presentation_002FUsers_002EWebApp_002FApplications_002FUser_002FFeatures_002FUserList_002FResources/@EntryIndexedValue">True</s:Boolean>
 	

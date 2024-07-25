@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Users.UnitTests", "Users.Un
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Users.WebApp", "Users.WebApp\Users.WebApp.csproj", "{FFFB6AAE-0084-485D-A8B0-6C858CBCB7E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Users.AcceptanceTests", "Users.AcceptanceTests\Users.AcceptanceTests.csproj", "{A81A37DF-5E9D-421B-B737-573CD8FAC891}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
