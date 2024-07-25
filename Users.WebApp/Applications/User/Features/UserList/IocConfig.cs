@@ -12,33 +12,29 @@ internal static class IocConfig
     public static void Configure(
         IServiceCollection services)
     {
+        var dbContext = services
+            .BuildServiceProvider()
+            .GetRequiredService<IUsersDbContext>();
+
         services.AddSingleton<IViewListActionModelQueryHandler>(
             implementationInstance: new ViewListActionModelQueryHandler(
                 new UserListQueryHandler(
                     new GetUserListQueryHandler(
-                        dbContext: services
-                            .BuildServiceProvider()
-                            .GetRequiredService<IUsersDbContext>()))));
+                        dbContext: dbContext))));
 
         services.AddSingleton<ICreateUserCommandHandler>(
             implementationInstance: new CreateUserCommandHandler(
                 createUserCommandHandler: new Application.Users.Commands.CreateUser.CreateUserCommandHandler(
-                    dbContext: services
-                        .BuildServiceProvider()
-                        .GetRequiredService<IUsersDbContext>())));
+                    dbContext: dbContext)));
 
         services.AddSingleton<IEditSenderCommandHandler>(
             implementationInstance: new EditSenderCommandHandler(
                 updateUserCommandHandler: new UpdateUserCommandHandler(
-                    dbContext: services
-                        .BuildServiceProvider()
-                        .GetRequiredService<IUsersDbContext>())));
+                    dbContext: dbContext)));
 
         services.AddSingleton<IDeleteUserCommandHandler>(
             implementationInstance: new DeleteUserCommandHandler(
                 new Application.Users.Commands.DeleteUser.DeleteUserCommandHandler(
-                    dbContext: services
-                        .BuildServiceProvider()
-                        .GetRequiredService<IUsersDbContext>())));
+                    dbContext: dbContext)));
     }
 }

@@ -17,7 +17,7 @@ public class UpdateUserCommandHandlerTests
         const string UpdatedEmail = "newemail@gmail.com";
 
         // Act
-        handler.Handle(
+        await handler.HandleAsync(
             id: UsersContextFactory.UserIdForUpdate,
             email: UpdatedEmail,
             professionList: new List<Profession>());
@@ -33,7 +33,7 @@ public class UpdateUserCommandHandlerTests
     }
 
     [Fact]
-    public Task UpdateUserCommandHandler_FailOnWrongId()
+    public async Task UpdateUserCommandHandler_FailOnWrongId()
     {
         // Arrange
         var handler = new UpdateUserCommandHandler(Context);
@@ -41,12 +41,11 @@ public class UpdateUserCommandHandlerTests
 
         // Act
         // Assert
-        Assert.Throws<NotFoundException>(() =>
-            handler.Handle(
-                id: Guid.NewGuid(),
-                email: UpdatedEmail,
-                professionList: new List<Profession>()));
-
-        return Task.CompletedTask;
+        await Assert.ThrowsAsync<NotFoundException>(
+            testCode: async () =>
+                handler.HandleAsync(
+                    id: Guid.NewGuid(),
+                    email: UpdatedEmail,
+                    professionList: new List<Profession>()));
     }
 }

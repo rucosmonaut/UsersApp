@@ -21,7 +21,7 @@
 
     <ItemGroup>
       <PackageReference Include="JetBrains.Annotations" Version="2024.2.0-eap1" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.7">
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0-preview.6.24327.4">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>

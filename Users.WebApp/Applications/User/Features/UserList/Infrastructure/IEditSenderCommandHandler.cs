@@ -4,10 +4,11 @@ using OneOf;
 
 public interface IEditSenderCommandHandler
 {
-    OneOf<
-            EditedResult,
-            UserNotFoundResult>
-        Handle(
+    Task<
+            OneOf<
+                EditedResult,
+                UserNotFoundResult>>
+        HandleAsync(
             string userId,
             string email);
 

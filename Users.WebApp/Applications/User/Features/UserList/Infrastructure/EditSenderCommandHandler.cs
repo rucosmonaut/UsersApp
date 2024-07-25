@@ -15,14 +15,15 @@ internal class EditSenderCommandHandler
         this.updateUserCommandHandler = updateUserCommandHandler;
     }
 
-    public OneOf<
-            IEditSenderCommandHandler.EditedResult,
-            IEditSenderCommandHandler.UserNotFoundResult>
-        Handle(
+    public async Task<
+            OneOf<
+                IEditSenderCommandHandler.EditedResult,
+                IEditSenderCommandHandler.UserNotFoundResult>>
+        HandleAsync(
             string userId,
             string email)
     {
-        updateUserCommandHandler.Handle(
+        await updateUserCommandHandler.HandleAsync(
             id: Guid.Parse(userId),
             email: email,
             professionList: ProfessionBuilder.BuildProfessionList());

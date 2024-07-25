@@ -12,13 +12,16 @@ public static class DependencyInjection
         IConfiguration configuration)
     {
         var connectionString = "Data Source=Users.db";
+
         services.AddDbContext<UsersDbContext>(options =>
         {
             //options.UseSqlite(connectionString);
             options.UseInMemoryDatabase("users");
         });
+
         services.AddScoped<IUsersDbContext>(provider =>
             provider.GetService<UsersDbContext>()!);
+
         return services;
     }
 }

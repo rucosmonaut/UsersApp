@@ -7,6 +7,7 @@ using Users.WebApp.Applications.User.Features.UserList.Actions.EditUser;
 using Users.WebApp.Applications.User.Features.UserList.Actions.ViewList;
 using Users.WebApp.Applications.User.Features.UserList.Infrastructure;
 using Users.WebApp.Controllers;
+using Users.WebApp.UIHelpers;
 
 [Route(template: "UserList/[action]")]
 public class UserListController
@@ -73,7 +74,11 @@ public class UserListController
                 addedResult => this
                     .RedirectToAction(
                         actionName: nameof(ViewList),
-                        controllerName: "UserList"),
+                        controllerName: "UserList")
+                    .WithAlert(
+                        alertClass: AlertClass.Success,
+                        message: "Success",
+                        httpContext: this.HttpContext),
                 alreadyExistsResult => this
                     .RedirectToAction(
                         actionName: nameof(ViewList),
@@ -82,14 +87,14 @@ public class UserListController
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult EditUser(
+    public async Task<ActionResult> EditUser(
         EditUserRequestModel requestModel)
     {
-        return this
+        return (await this
             .editSenderCommandHandler
-            .Handle(
+            .HandleAsync(
                 userId: requestModel.Id,
-                email: requestModel.Email)
+                email: requestModel.Email))
             .Match(
                 editedResult => this
                     .RedirectToAction(
