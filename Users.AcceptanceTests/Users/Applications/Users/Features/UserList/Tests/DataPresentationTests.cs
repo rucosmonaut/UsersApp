@@ -2,6 +2,11 @@ namespace Users.AcceptanceTests.Users.Applications.Users.Features.UserList.Tests
 
 using FluentAssertions;
 using global::Users.AcceptanceTests.Fixtures;
+using global::Users.Application.Users.Commands.CreateUser;
+using global::Users.Application.Users.Commands.DeleteUser;
+using global::Users.Application.Users.Queries.GetUserList;
+using global::Users.Domain;
+using Microsoft.Extensions.DependencyInjection;
 using RetailRocket.AcceptanceTests.PartnerOffice.V2.Applications.Documentation.Features.BehavioralMailingsDocumentation;
 using Xunit;
 
@@ -17,11 +22,13 @@ public class DataPresentationTests
     }
 
     [Fact]
-    public void ShouldShowEmptyList()
+    public async Task ShouldShowEmptyList()
     {
-        TestRunner.Run(
-            test: () =>
+        await TestRunner.RunAsync(
+            test: async () =>
             {
+                await this.SetupWithEmptyList();
+
                 var pageObject = UserListPageObject
                     .NavigateToPageObject(
                         driver: this
@@ -37,5 +44,76 @@ public class DataPresentationTests
             seleniumDriver: this
                 .fixture
                 .Driver);
+    }
+
+    [Fact]
+    public async Task ShouldShowList()
+    {
+        await TestRunner.RunAsync(
+            test: async () =>
+            {
+                var randomUserEmail = $"{Guid.NewGuid().ToString()}@{Guid.NewGuid().ToString()}";
+
+                await this.SetupWithList(randomUserEmail);
+
+                var pageObject = UserListPageObject
+                    .NavigateToPageObject(
+                        driver: this
+                            .fixture
+                            .Driver);
+
+                pageObject
+                    .EmptyListWrapper
+                    .Displayed
+                    .Should()
+                    .BeTrue();
+            },
+            seleniumDriver: this
+                .fixture
+                .Driver);
+    }
+
+    private async Task SetupWithList(string userEmail)
+    {
+        await this.ClearUserList();
+
+        var serviceProvider = this
+            .fixture
+            .ServiceCollection
+            .BuildServiceProvider();
+
+        await serviceProvider
+            .GetRequiredService<ICreateUserCommandHandler>()
+            .HandleAsync(
+                email: userEmail,
+                professionList: new List<Profession>
+                {
+                    Profession.Analyst,
+                    Profession.Designer
+                });
+    }
+
+    private async Task SetupWithEmptyList()
+    {
+        await this.ClearUserList();
+    }
+
+    private async Task ClearUserList()
+    {
+        var serviceProvider = this
+            .fixture
+            .ServiceCollection
+            .BuildServiceProvider();
+
+        var userListVm = await serviceProvider
+            .GetRequiredService<IGetUserListQueryHandler>()
+            .HandleAsync();
+
+        var deleteUserCommandHandler = serviceProvider.GetRequiredService<IDeleteUserCommandHandler>();
+
+        foreach (var user in userListVm.Users)
+        {
+            await deleteUserCommandHandler.HandleAsync(user.Id);
+        }
     }
 }

@@ -16,7 +16,7 @@ public static class DependencyInjection
         services.AddDbContext<UsersDbContext>(options =>
         {
             //options.UseSqlite(connectionString);
-            options.UseInMemoryDatabase("users");
+            options.UseInMemoryDatabase("Users");
         });
 
         services.AddScoped<IUsersDbContext>(provider =>

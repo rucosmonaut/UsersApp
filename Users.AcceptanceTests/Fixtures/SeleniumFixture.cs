@@ -1,15 +1,57 @@
 namespace Users.AcceptanceTests.Fixtures;
 
+using global::Users.Application.Interfaces;
+using global::Users.Application.Users.Commands.CreateUser;
+using global::Users.Application.Users.Commands.DeleteUser;
+using global::Users.Application.Users.Commands.UpdateUser;
+using global::Users.Application.Users.Queries.GetUserList;
+using global::Users.Persistence;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using OpenQA.Selenium.Chrome;
 
 public class SeleniumFixture
 {
-    private Timer liveTimer;
     private bool disposed = false;
+
+    public ServiceCollection ServiceCollection { get; }
 
     public SeleniumFixture()
     {
-        this.Driver = this.CreateDriver();
+        this.Driver = CreateDriver();
+
+        this.ServiceCollection = new ServiceCollection();
+
+        var optionBuilder = new DbContextOptionsBuilder<UsersDbContext>();
+
+        optionBuilder.UseInMemoryDatabase("Users");
+
+        var dbContext = new UsersDbContext(optionBuilder.Options);
+
+        this.
+            ServiceCollection
+            .AddScoped<IUsersDbContext>(
+                implementationFactory: provider => dbContext);
+
+        this
+            .ServiceCollection
+            .AddSingleton<ICreateUserCommandHandler>(
+                new CreateUserCommandHandler(dbContext));
+
+        this
+            .ServiceCollection
+            .AddSingleton<IDeleteUserCommandHandler>(
+                new DeleteUserCommandHandler(dbContext));
+
+        this
+            .ServiceCollection
+            .AddSingleton<IUpdateUserCommandHandler>(
+                new UpdateUserCommandHandler(dbContext));
+
+        this
+            .ServiceCollection
+            .AddSingleton<IGetUserListQueryHandler>(
+                new GetUserListQueryHandler(dbContext));
     }
 
     public ChromeDriver Driver { get; set; }
@@ -23,32 +65,37 @@ public class SeleniumFixture
 
         if (disposing)
         {
-            this.Driver.Quit();
-            this.Driver.Dispose();
+            this
+                .Driver
+                .Quit();
+
+            this
+                .Driver
+                .Dispose();
         }
 
         this.disposed = true;
     }
 
-    private ChromeDriver CreateDriver()
+    private static ChromeDriver CreateDriver()
     {
         var webDriver = DriverFactory.Build();
 
-        webDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(1);
+        webDriver
+            .Manage()
+            .Timeouts()
+            .ImplicitWait = TimeSpan.FromSeconds(1);
 
         const int AcceptanceTestsTimeLimitInMinutes = 50;
 
-        this.liveTimer = new Timer(
-            state =>
+        new Timer(
+            callback: state =>
             {
                 webDriver.Dispose();
-
-                throw new TimeoutException(
-                    $"SeleniumFixture: Acceptance test selenium driver was disposed by timeout {AcceptanceTestsTimeLimitInMinutes} minutes.");
             },
-            null,
-            (uint)TimeSpan.FromMinutes(AcceptanceTestsTimeLimitInMinutes).TotalMilliseconds,
-            -1);
+            state: null,
+            dueTime: (uint)TimeSpan.FromMinutes(AcceptanceTestsTimeLimitInMinutes).TotalMilliseconds,
+            period: -1);
 
         return webDriver;
     }
