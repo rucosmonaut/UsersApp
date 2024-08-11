@@ -63,10 +63,10 @@ public class DataPresentationTests
                             .Driver);
 
                 pageObject
-                    .EmptyListWrapper
-                    .Displayed
+                    .UserEmail
+                    .Text
                     .Should()
-                    .BeTrue();
+                    .BeEquivalentTo(randomUserEmail);
             },
             seleniumDriver: this
                 .fixture

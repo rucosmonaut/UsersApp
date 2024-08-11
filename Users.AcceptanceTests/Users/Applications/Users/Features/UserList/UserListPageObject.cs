@@ -19,6 +19,12 @@ namespace RetailRocket.AcceptanceTests.PartnerOffice.V2.Applications.Documentati
                 By.Id(
                     idToFind: "emptyUserListContainer"));
 
+        public IWebElement UserEmail => this
+            .Driver
+            .FindElement(
+                By.Id(
+                    idToFind: "userEmail"));
+
         public static UserListPageObject NavigateToPageObject(
             IWebDriver driver)
         {
