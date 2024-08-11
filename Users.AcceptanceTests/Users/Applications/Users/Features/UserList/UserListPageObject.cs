@@ -25,7 +25,7 @@ namespace RetailRocket.AcceptanceTests.PartnerOffice.V2.Applications.Documentati
             driver
                 .Navigate()
                 .GoToUrl(
-                    url: $"https://localhost:5004/UserList/ViewList");
+                    url: $"https://users.app.local/UserList/ViewList");
 
             return new UserListPageObject(
                 driver: driver);

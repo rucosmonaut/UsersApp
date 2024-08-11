@@ -8,6 +8,7 @@ using global::Users.Application.Users.Queries.GetUserList;
 using global::Users.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using MongoDB.Driver;
 using OpenQA.Selenium.Chrome;
 
 public class SeleniumFixture
@@ -24,7 +25,15 @@ public class SeleniumFixture
 
         var optionBuilder = new DbContextOptionsBuilder<UsersDbContext>();
 
-        optionBuilder.UseInMemoryDatabase("Users");
+        const string ConnectionString = "localhost";
+
+        var mongoDbClient = new MongoClient(
+            new MongoClientSettings
+            {
+                Server = new MongoServerAddress(ConnectionString)
+            });
+
+        optionBuilder.UseMongoDB(mongoDbClient, "Users");
 
         var dbContext = new UsersDbContext(optionBuilder.Options);
 
