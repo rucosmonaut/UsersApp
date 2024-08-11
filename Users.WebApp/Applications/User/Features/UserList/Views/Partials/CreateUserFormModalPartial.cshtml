@@ -24,13 +24,13 @@
                     @Html.AntiForgeryToken()
                     <div class="form-group">
                         <div class="mb-3">
-                            <label for="UserEmail"
+                            <label for="createUserEmailInput"
                                 class="form-label">
                                 @Resources.CreateUserFormModal_UserEmailInput_Label
                             </label>
                             <input type="email"
                                 name="@nameof(CreateUserRequestModel.Email)"
-                                id="UserEmail"
+                                id="createUserEmailInput"
                                 class="form-control"
                                 required>
                             <span class="help-block">

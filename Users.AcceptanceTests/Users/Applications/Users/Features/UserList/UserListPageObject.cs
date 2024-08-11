@@ -1,6 +1,5 @@
 namespace RetailRocket.AcceptanceTests.PartnerOffice.V2.Applications.Documentation.Features.BehavioralMailingsDocumentation
 {
-    using System;
     using OpenQA.Selenium;
     using Users.AcceptanceTests.Users;
 
@@ -19,11 +18,47 @@ namespace RetailRocket.AcceptanceTests.PartnerOffice.V2.Applications.Documentati
                 By.Id(
                     idToFind: "emptyUserListContainer"));
 
-        public IWebElement UserEmail => this
+        public IWebElement UserEmailLabel => this
             .Driver
             .FindElement(
                 By.Id(
                     idToFind: "userEmail"));
+
+        public IWebElement CreateUserButton => this
+            .Driver
+            .FindElement(
+                By.Id(
+                    idToFind: "createUserButton"));
+
+        public IWebElement CreateUserEmailInput => this
+            .Driver
+            .FindElement(
+                By.Id("createUserEmailInput"));
+
+        public IWebElement EditUserEmailInput => this
+            .Driver
+            .FindElement(
+                By.Id("editUserEmailInput"));
+
+        public IWebElement EditUserFormButton => this
+            .Driver
+            .FindElement(
+                By.Id("editUserFormButton"));
+
+        public IWebElement CreateUserFormButton => this
+            .Driver
+            .FindElement(
+                By.Id("createUserFormButton"));
+
+        public IWebElement EditUserButton => this
+            .Driver
+            .FindElement(
+                By.Id("editUserButton"));
+
+        public IWebElement DeleteUserButton => this
+            .Driver
+            .FindElement(
+                By.Id("deleteUserButton"));
 
         public static UserListPageObject NavigateToPageObject(
             IWebDriver driver)

@@ -7,6 +7,8 @@
     &lt;TestAncestor&gt;&#xD;
       &lt;TestId&gt;xUnit::A81A37DF-5E9D-421B-B737-573CD8FAC891::net8.0::Users.AcceptanceTests.Users.Applications.Users.Features.UserList.Tests.DataPresentationTests.ShouldShowEmptyList&lt;/TestId&gt;&#xD;
       &lt;TestId&gt;xUnit::A81A37DF-5E9D-421B-B737-573CD8FAC891::net8.0::Users.AcceptanceTests.Users.Applications.Users.Features.UserList.Tests.DataPresentationTests.ShouldShowList&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::A81A37DF-5E9D-421B-B737-573CD8FAC891::net8.0::Users.AcceptanceTests.Users.Applications.Users.Features.UserList.Tests.DataPresentationTests.ShouldCreateUser&lt;/TestId&gt;&#xD;
+      &lt;TestId&gt;xUnit::A81A37DF-5E9D-421B-B737-573CD8FAC891::net8.0::Users.AcceptanceTests.Users.Applications.Users.Features.UserList.Tests.DataPresentationTests.ShouldEditUser&lt;/TestId&gt;&#xD;
     &lt;/TestAncestor&gt;&#xD;
   &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>

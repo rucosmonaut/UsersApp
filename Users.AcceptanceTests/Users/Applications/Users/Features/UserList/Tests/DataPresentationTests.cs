@@ -2,6 +2,7 @@ namespace Users.AcceptanceTests.Users.Applications.Users.Features.UserList.Tests
 
 using FluentAssertions;
 using global::Users.AcceptanceTests.Fixtures;
+using global::Users.AcceptanceTests.Helpers;
 using global::Users.Application.Users.Commands.CreateUser;
 using global::Users.Application.Users.Commands.DeleteUser;
 using global::Users.Application.Users.Queries.GetUserList;
@@ -52,7 +53,7 @@ public class DataPresentationTests
         await TestRunner.RunAsync(
             test: async () =>
             {
-                var randomUserEmail = $"{Guid.NewGuid().ToString()}@{Guid.NewGuid().ToString()}";
+                var randomUserEmail = ObjectGen.CreateEmail();
 
                 await this.SetupWithList(randomUserEmail);
 
@@ -63,10 +64,121 @@ public class DataPresentationTests
                             .Driver);
 
                 pageObject
-                    .UserEmail
+                    .UserEmailLabel
                     .Text
                     .Should()
                     .BeEquivalentTo(randomUserEmail);
+            },
+            seleniumDriver: this
+                .fixture
+                .Driver);
+    }
+
+    [Fact]
+    public async Task ShouldCreateUser()
+    {
+        await TestRunner.RunAsync(
+            test: async () =>
+            {
+                await this.SetupWithEmptyList();
+
+                var pageObject = UserListPageObject
+                    .NavigateToPageObject(
+                        driver: this
+                            .fixture
+                            .Driver);
+
+                pageObject
+                    .CreateUserButton
+                    .Click();
+
+                var randomUserEmail = ObjectGen.CreateEmail();
+
+                pageObject
+                    .CreateUserEmailInput
+                    .SendKeys(randomUserEmail);
+
+                pageObject
+                    .CreateUserFormButton
+                    .Click();
+
+                pageObject
+                    .UserEmailLabel
+                    .Text
+                    .Should()
+                    .BeEquivalentTo(randomUserEmail);
+
+            },
+            seleniumDriver: this
+                .fixture
+                .Driver);
+    }
+
+    [Fact]
+    public async Task ShouldEditUser()
+    {
+        await TestRunner.RunAsync(
+            test: async () =>
+            {
+                var randomUserEmail = ObjectGen.CreateEmail();
+
+                await this.SetupWithList(randomUserEmail);
+
+                var pageObject = UserListPageObject
+                    .NavigateToPageObject(
+                        driver: this
+                            .fixture
+                            .Driver);
+
+                pageObject
+                    .EditUserButton
+                    .Click();
+
+                var newRandomUserEmail = ObjectGen.CreateEmail();
+
+                pageObject
+                    .EditUserEmailInput
+                    .Clear();
+
+                pageObject
+                    .EditUserEmailInput
+                    .SendKeys(newRandomUserEmail);
+
+                pageObject
+                    .EditUserFormButton
+                    .Click();
+
+                pageObject
+                    .UserEmailLabel
+                    .Text
+                    .Should()
+                    .BeEquivalentTo(newRandomUserEmail);
+
+            },
+            seleniumDriver: this
+                .fixture
+                .Driver);
+    }
+
+    [Fact]
+    public async Task ShouldDeleteUser()
+    {
+        await TestRunner.RunAsync(
+            test: async () =>
+            {
+                await this.SetupWithList(ObjectGen.CreateEmail());
+
+                var pageObject = UserListPageObject
+                    .NavigateToPageObject(
+                        driver: this
+                            .fixture
+                            .Driver);
+
+                pageObject
+                    .EmptyListWrapper
+                    .Displayed
+                    .Should()
+                    .BeTrue();
             },
             seleniumDriver: this
                 .fixture
