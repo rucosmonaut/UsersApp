@@ -5,6 +5,8 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <RootNamespace>Users.WebApp</RootNamespace>
+        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+        <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
     </PropertyGroup>
 
     <ItemGroup>
@@ -72,15 +74,26 @@
       <None Remove="Users.Persistence.pdb" />
     </ItemGroup>
 
-
     <ItemGroup>
       <Content Remove="Users.WebApp.runtimeconfig.json" />
       <Content Remove="Users.WebApp.deps.json" />
     </ItemGroup>
 
-
     <ItemGroup>
       <_ContentIncludedByDefault Remove="wwwroot\Users.WebApp.styles.css" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="**\Content\**\*.js" CopyToPublishDirectory="PreserveNewest" />
+        <Content Include="**\Content\**\*.css" CopyToPublishDirectory="PreserveNewest" />
+        <Content Include="**\Content\**\*.png" CopyToPublishDirectory="PreserveNewest" />
+        <Content Include="**\Content\**\*.jpeg" CopyToPublishDirectory="PreserveNewest" />
+        <Content Include="**\Content\**\*.jpg" CopyToPublishDirectory="PreserveNewest" />
+        <Content Include="**\Content\**\*.svg" CopyToPublishDirectory="PreserveNewest" />
+        <Content Include="**\Content\**\*.gif" CopyToPublishDirectory="PreserveNewest" />
+        <Content Include="**\Content\**\*.csv" CopyToPublishDirectory="PreserveNewest" />
+        <Content Include="**\Content\**\*.ttf" CopyToPublishDirectory="PreserveNewest" />
+        <Content Include="**\Content\**\*.woff2" CopyToPublishDirectory="PreserveNewest" />
     </ItemGroup>
 
 </Project>
