@@ -175,6 +175,14 @@ public class DataPresentationTests
                             .Driver);
 
                 pageObject
+                    .DeleteUserButton
+                    .Click();
+
+                pageObject
+                    .DeleteUserFormButton
+                    .Click();
+
+                pageObject
                     .EmptyListWrapper
                     .Displayed
                     .Should()

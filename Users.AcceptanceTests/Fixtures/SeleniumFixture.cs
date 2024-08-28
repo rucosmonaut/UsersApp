@@ -12,7 +12,10 @@ using MongoDB.Driver;
 using OpenQA.Selenium.Chrome;
 
 public class SeleniumFixture
+    : BaseFixture
 {
+    private Timer liveTimer;
+
     private bool disposed = false;
 
     public ServiceCollection ServiceCollection { get; }
@@ -65,7 +68,7 @@ public class SeleniumFixture
 
     public ChromeDriver Driver { get; set; }
 
-    protected void Dispose(bool disposing)
+    protected override void Dispose(bool disposing)
     {
         if (this.disposed)
         {

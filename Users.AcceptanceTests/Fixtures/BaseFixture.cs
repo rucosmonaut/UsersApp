@@ -4,17 +4,18 @@ namespace Users.AcceptanceTests.Fixtures;
     using System.ComponentModel;
     using System.Net;
     using System.Reflection;
+    using OpenQA.Selenium.DevTools.V125.Debugger;
 
-    public abstract class BaseFixture : IDisposable
+    public abstract class BaseFixture
+        : IDisposable
     {
         private bool disposed = false;
+
+        public Scope Scope { get; }
 
         protected BaseFixture()
         {
             var applicationName = Assembly.GetExecutingAssembly().GetName().Name;
-
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls |
-                                                   SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
             this.Container = new Container();
         }
@@ -31,6 +32,18 @@ namespace Users.AcceptanceTests.Fixtures;
 
         public void Dispose()
         {
+            this.Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(
+            bool disposing)
+        {
+            if (this.disposed)
+            {
+                return;
+            }
+
+            this.disposed = true;
         }
     }

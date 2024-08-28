@@ -60,6 +60,11 @@ namespace RetailRocket.AcceptanceTests.PartnerOffice.V2.Applications.Documentati
             .FindElement(
                 By.Id("deleteUserButton"));
 
+        public IWebElement DeleteUserFormButton => this
+            .Driver
+            .FindElement(
+                By.Id("deleteUserFormButton"));
+
         public static UserListPageObject NavigateToPageObject(
             IWebDriver driver)
         {
