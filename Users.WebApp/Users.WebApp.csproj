@@ -64,9 +64,6 @@
       <None Update="Users.db-wal">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Users.db">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
       <None Remove="runtimes\win-x86\native\e_sqlite3.dll" />
       <None Remove="Users.WebApp.pdb" />
       <None Remove="Users.WebApp.exe" />
