@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="CreateUserFormModal_Header" xml:space="preserve">
+        <value>Добавление пользователя</value>
+    </data>
+    <data name="CreateUserFormModal_UserEmailInput_HelpText" xml:space="preserve">
+        <value>Введите валидный email</value>
+    </data>
+    <data name="EditUserFormModal_Header" xml:space="preserve">
+        <value>Редактирование пользователя</value>
+    </data>
+    <data name="EditUserFormModal_UserEmailInput_Label" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="EditUserFormModal_UserEmailInput_HelpText" xml:space="preserve">
+        <value>Введите валидный email</value>
+    </data>
+    <data name="EditUserFormModal_CancelButton_Label" xml:space="preserve">
+        <value>Отмена</value>
+    </data>
+    <data name="EditUserFormModal_SubmitButton_Label" xml:space="preserve">
+        <value>Сохранить</value>
+    </data>
+    <data name="CreateUserFormModal_UserEmailInput_Label" xml:space="preserve">
+        <value>Email</value>
+    </data>
+    <data name="CreateUserFormModal_CancelButton_Label" xml:space="preserve">
+        <value>Отмена</value>
+    </data>
+    <data name="CreateUserFormModal_SubmitButton_Label" xml:space="preserve">
+        <value>Добавить</value>
+    </data>
+    <data name="EmptyList_PageTitle" xml:space="preserve">
+        <value>Пользователи кабинета</value>
+    </data>
+    <data name="EmptyList_Header" xml:space="preserve">
+        <value>Список пуст</value>
+    </data>
+    <data name="EmptyList_Description" xml:space="preserve">
+        <value>Добавьте хотя бы одного пользователя.</value>
+    </data>
+    <data name="EmptyList_CreateUserButton" xml:space="preserve">
+        <value>Добавить</value>
+    </data>
+    <data name="UserList_PageTitle" xml:space="preserve">
+        <value>Пользователи кабинета</value>
+    </data>
+    <data name="CreateUserButton_Label" xml:space="preserve">
+        <value>Пригласить в кабинет</value>
+    </data>
+    <data name="CreateUserFormModal_UserProffesionslnput_Label" xml:space="preserve">
+        <value>Професии</value>
+    </data>
+    <data name="CreateUserFormModal_UserProffesionslnput_HelpText" xml:space="preserve">
+        <value>Выберете одну или больше професий</value>
+    </data>
+    <data name="DeleteUserFormModal_Header" xml:space="preserve">
+        <value>Удалить пользователя?</value>
+    </data>
+    <data name="DeleteUserFormModal_Description" xml:space="preserve">
+        <value>Вы уверены, что хотите удалить?</value>
+    </data>
+    <data name="DeleteUserFormModal_CancelButton_Label" xml:space="preserve">
+        <value>Отмена</value>
+    </data>
+    <data name="DeleteUserFormModal_SubmitButton_Label" xml:space="preserve">
+        <value>Удалить</value>
+    </data>
+</root>

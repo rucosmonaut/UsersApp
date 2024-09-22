@@ -1,0 +1,50 @@
+﻿@using Users.WebApp.Applications.User.Features.UserList
+@using Users.WebApp.Applications.User.Features.UserList.Actions.DeleteUser
+@model Users.WebApp.Applications.User.Features.UserList.Views.Partials.DeleteUserFormModalPartialViewModel
+
+
+<div class="modal"
+    id="deleteUser"
+    role="dialog"
+    data-bs-backdrop="static"
+    tabindex="-1">
+    <div class="modal-dialog"
+        role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">@Resources.DeleteUserFormModal_Header</h4>
+                <button aria-label="Close"
+                    class="btn btn-close"
+                    data-bs-dismiss="modal"
+                    type="button">
+                </button>
+            </div>
+            <form method="POST">
+                <div class="modal-body">
+                    @Html.AntiForgeryToken()
+                    <input modal-data-value="userId"
+                        name="@nameof(DeleteUserRequestModel.Id)"
+                        type="hidden"/>
+                    <p>
+                        @Resources.DeleteUserFormModal_Description
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default"
+                        data-bs-dismiss="modal"
+                        tabindex="1"
+                        type="button">
+                        @Resources.DeleteUserFormModal_CancelButton_Label
+                    </button>
+                    <button class="btn btn-danger"
+                        formaction="@Model.DeleteUserActionUrl"
+                        id="deleteUserFormButton"
+                        tabindex="2"
+                        type="submit">
+                        @Resources.DeleteUserFormModal_SubmitButton_Label
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

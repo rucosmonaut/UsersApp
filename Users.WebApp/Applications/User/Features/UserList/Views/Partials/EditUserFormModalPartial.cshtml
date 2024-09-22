@@ -1,0 +1,68 @@
+@using Users.WebApp.Applications.User.Features.UserList
+@using Users.WebApp.Applications.User.Features.UserList.Actions.EditUser
+@model Users.WebApp.Applications.User.Features.UserList.Views.Partials.EditUserFormModalPartialViewModel
+
+<div class="modal"
+    data-bs-backdrop="static"
+    id="editUser"
+    role="dialog"
+    tabindex="-1">
+    <div class="modal-dialog"
+        role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">@Resources.EditUserFormModal_Header</h4>
+                <button aria-label="Close"
+                    class="btn btn-close"
+                    data-bs-dismiss="modal"
+                    type="button">
+                </button>
+            </div>
+            <form method="post">
+                <div class="modal-body">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <div class="mb-3">
+                            <label for="editUserEmailInput"
+                                class="form-label">
+                                @Resources.EditUserFormModal_UserEmailInput_Label
+                            </label>
+                            <input type="email"
+                                name="@nameof(EditUserRequestModel.Email)"
+                                id="editUserEmailInput"
+                                class="form-control"
+                                modal-data-value="email"
+                                required>
+                            <span class="help-block">
+                                @Resources.EditUserFormModal_UserEmailInput_HelpText
+                            </span>
+                        </div>
+                        <input type="hidden"
+                            name="@nameof(EditUserRequestModel.Id)"
+                            id="UserId"
+                            class="form-control"
+                            modal-data-value="userId"
+                            required>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button class="btn btn-danger"
+                        data-bs-dismiss="modal"
+                        id="cancelUserFormButton"
+                        tabindex="1"
+                        type="button">
+                        @Resources.EditUserFormModal_CancelButton_Label
+                    </button>
+                    <button class="btn btn-primary"
+                        formaction="@Model.EditUserActionUrl"
+                        id="editUserFormButton"
+                        tabindex="2"
+                        type="submit">
+                        @Resources.EditUserFormModal_SubmitButton_Label
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
