@@ -7,10 +7,14 @@ stages:
 
 build:
   stage: build
+  tags:
+    msbuild17
   script:
     - dotnet build
 
 test:
   stage: test
+  tags:
+    msbuild17
   script:
     - dotnet test
