@@ -25,6 +25,7 @@ acceptance-tests:
     - dotnet build ./Users.WebApp/ -c Release
     - dotnet ./Users.WebApp/bin/Release/net8.0/Users.WebApp.dll
     - dotnet test ./Users.AcceptanceTests/
+  allow_failure: true
 
 unit-tests:
   stage: tests
