@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Users.AcceptanceTests": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
