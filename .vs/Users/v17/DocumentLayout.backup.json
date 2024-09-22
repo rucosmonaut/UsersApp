@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\work\\\u0418\u041F\u0420\\Users\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FFFB6AAE-0084-485D-A8B0-6C858CBCB7E4}|Users.WebApp\\Users.WebApp.csproj|c:\\work\\\u0438\u043F\u0440\\users\\users.webapp\\users.webapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{FFFB6AAE-0084-485D-A8B0-6C858CBCB7E4}|Users.WebApp\\Users.WebApp.csproj|solutionrelative:users.webapp\\users.webapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{DC90D552-8CE3-4C63-B426-87148768B25A}|docker-compose.dcproj|c:\\work\\\u0438\u043F\u0440\\users\\docker-compose.override.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DC90D552-8CE3-4C63-B426-87148768B25A}|docker-compose.dcproj|solutionrelative:docker-compose.override.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC90D552-8CE3-4C63-B426-87148768B25A}|docker-compose.dcproj|c:\\work\\\u0438\u043F\u0440\\users\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DC90D552-8CE3-4C63-B426-87148768B25A}|docker-compose.dcproj|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DC90D552-8CE3-4C63-B426-87148768B25A}|docker-compose.dcproj|c:\\work\\\u0438\u043F\u0440\\users\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DC90D552-8CE3-4C63-B426-87148768B25A}|docker-compose.dcproj|solutionrelative:launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FFFB6AAE-0084-485D-A8B0-6C858CBCB7E4}|Users.WebApp\\Users.WebApp.csproj|c:\\work\\\u0438\u043F\u0440\\users\\users.webapp\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{FFFB6AAE-0084-485D-A8B0-6C858CBCB7E4}|Users.WebApp\\Users.WebApp.csproj|solutionrelative:users.webapp\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FFFB6AAE-0084-485D-A8B0-6C858CBCB7E4}|Users.WebApp\\Users.WebApp.csproj|c:\\work\\\u0438\u043F\u0440\\users\\users.webapp\\users.webapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{FFFB6AAE-0084-485D-A8B0-6C858CBCB7E4}|Users.WebApp\\Users.WebApp.csproj|solutionrelative:users.webapp\\users.webapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FFFB6AAE-0084-485D-A8B0-6C858CBCB7E4}|Users.WebApp\\Users.WebApp.csproj|c:\\work\\\u0438\u043F\u0440\\users\\users.webapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,37 +34,73 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "docker-compose.override.yml",
+              "DocumentMoniker": "C:\\work\\\u0418\u041F\u0420\\Users\\docker-compose.override.yml",
+              "RelativeDocumentMoniker": "docker-compose.override.yml",
+              "ToolTip": "C:\\work\\\u0418\u041F\u0420\\Users\\docker-compose.override.yml",
+              "RelativeToolTip": "docker-compose.override.yml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2024-09-22T15:26:09.254Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\work\\\u0418\u041F\u0420\\Users\\launchSettings.json",
+              "RelativeDocumentMoniker": "launchSettings.json",
+              "ToolTip": "C:\\work\\\u0418\u041F\u0420\\Users\\launchSettings.json",
+              "RelativeToolTip": "launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-22T15:23:48.161Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "docker-compose.yml",
+              "DocumentMoniker": "C:\\work\\\u0418\u041F\u0420\\Users\\docker-compose.yml",
+              "RelativeDocumentMoniker": "docker-compose.yml",
+              "ToolTip": "C:\\work\\\u0418\u041F\u0420\\Users\\docker-compose.yml",
+              "RelativeToolTip": "docker-compose.yml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2024-09-22T15:21:53.586Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Dockerfile",
               "DocumentMoniker": "C:\\work\\\u0418\u041F\u0420\\Users\\Users.WebApp\\Dockerfile",
               "RelativeDocumentMoniker": "Users.WebApp\\Dockerfile",
               "ToolTip": "C:\\work\\\u0418\u041F\u0420\\Users\\Users.WebApp\\Dockerfile",
               "RelativeToolTip": "Users.WebApp\\Dockerfile",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-09-22T15:17:30.59Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-22T15:17:30.59Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Users.WebApp",
+              "DocumentIndex": 4,
+              "Title": "Users.WebApp.csproj",
               "DocumentMoniker": "C:\\work\\\u0418\u041F\u0420\\Users\\Users.WebApp\\Users.WebApp.csproj",
               "RelativeDocumentMoniker": "Users.WebApp\\Users.WebApp.csproj",
               "ToolTip": "C:\\work\\\u0418\u041F\u0420\\Users\\Users.WebApp\\Users.WebApp.csproj",
               "RelativeToolTip": "Users.WebApp\\Users.WebApp.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAGQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-09-22T15:16:52.032Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-22T15:16:52.032Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\work\\\u0418\u041F\u0420\\Users\\Users.WebApp\\Program.cs",
               "RelativeDocumentMoniker": "Users.WebApp\\Program.cs",
@@ -60,8 +108,7 @@
               "RelativeToolTip": "Users.WebApp\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-08T18:02:00.143Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-08T18:02:00.143Z"
             }
           ]
         }
