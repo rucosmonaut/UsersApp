@@ -1,18 +1,10 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:Int64 x:Key="/Default/Environment/Hierarchy/Build/BuildTool/MsbuildVersion/@EntryValue">1114112</s:Int64>
 	<s:String x:Key="/Default/Environment/Hierarchy/Build/BuildTool/CustomBuildToolPath/@EntryValue">C:\Program Files\dotnet\sdk\8.0.400-preview.0.24324.5\MSBuild.dll</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=4acfb672_002Dfb5d_002D495e_002D9407_002D995f331761ad/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetNoteListQueryHandler_Success" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Or&gt;&#xD;
-    &lt;Project Location="C:\work\ИПР\Users\Users.UnitTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;Users.UnitTests&amp;gt;" /&gt;&#xD;
-    &lt;TestAncestor&gt;&#xD;
-      &lt;TestId&gt;xUnit::A81A37DF-5E9D-421B-B737-573CD8FAC891::net8.0::Users.AcceptanceTests.Users.Applications.Users.Features.UserList.Tests.DataPresentationTests.ShouldShowEmptyList&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::A81A37DF-5E9D-421B-B737-573CD8FAC891::net8.0::Users.AcceptanceTests.Users.Applications.Users.Features.UserList.Tests.DataPresentationTests.ShouldShowList&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::A81A37DF-5E9D-421B-B737-573CD8FAC891::net8.0::Users.AcceptanceTests.Users.Applications.Users.Features.UserList.Tests.DataPresentationTests.ShouldCreateUser&lt;/TestId&gt;&#xD;
-      &lt;TestId&gt;xUnit::A81A37DF-5E9D-421B-B737-573CD8FAC891::net8.0::Users.AcceptanceTests.Users.Applications.Users.Features.UserList.Tests.DataPresentationTests.ShouldEditUser&lt;/TestId&gt;&#xD;
-    &lt;/TestAncestor&gt;&#xD;
-    &lt;ProjectFile&gt;A81A37DF-5E9D-421B-B737-573CD8FAC891/d:Users/d:Applications/d:Users/d:Features/d:UserList/d:Tests/f:DataPresentationTests.cs&lt;/ProjectFile&gt;&#xD;
-  &lt;/Or&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e24461dd_002D9261_002D4078_002Dac8c_002D87b4bb64ed1e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;Tests&amp;gt;\&amp;lt;Users.AcceptanceTests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\work\ИПР\Users\Users.AcceptanceTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;Users.AcceptanceTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
+	
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Presentation_002FUsers_002EWebApp_002FApplications_002FUser_002FFeatures_002FUserList_002FResources/@EntryIndexedValue">True</s:Boolean>
 	
 	
