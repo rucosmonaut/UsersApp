@@ -1,5 +1,8 @@
 image: mcr.microsoft.com/dotnet/core/sdk:8.0
 
+services:
+- mongodb:latest
+
 stages:
   - build
   - tests
