@@ -9,6 +9,7 @@ build:
   stage: build
   tags:
    - msbuild17
+   - win-builder9
   script:
     - dotnet build ./Users.WebApp/
 
@@ -16,6 +17,7 @@ acceptance-tests:
   stage: tests
   tags:
     - msbuild17
+    - win-builder9
   script:
     - dotnet build ./Users.WebApp/ -c Release
     - dotnet ./Users.WebApp/bin/Release/net8.0/Users.WebApp.dll
@@ -25,5 +27,6 @@ unit-tests:
   stage: tests
   tags:
     - msbuild17
+    - win-builder9
   script:
     - dotnet test ./Users.UnitTests/
