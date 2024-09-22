@@ -1,6 +1,12 @@
 services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
   users.webapp:
     image: ${DOCKER_REGISTRY-}userswebapp
     build:
       context: .
       dockerfile: Users.WebApp/Dockerfile
+    depends_on:
+      - mongo

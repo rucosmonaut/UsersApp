@@ -12,12 +12,12 @@ public static class DependencyInjection
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        const string ConnectionString = "localhost";
+        var сonnectionString = Environment.GetEnvironmentVariable("MONGO_CONNECTION_STRING");
 
         var mongoDbClient = new MongoClient(
             new MongoClientSettings
             {
-                Server = new MongoServerAddress(ConnectionString)
+                Server = new MongoServerAddress(сonnectionString)
             });
 
         services.AddDbContext<UsersDbContext>(options =>

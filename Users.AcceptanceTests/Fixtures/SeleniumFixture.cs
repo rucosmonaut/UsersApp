@@ -31,12 +31,12 @@ public class SeleniumFixture
 
         var optionBuilder = new DbContextOptionsBuilder<UsersDbContext>();
 
-        const string ConnectionString = "localhost";
+        var сonnectionString = Environment.GetEnvironmentVariable("MONGO_CONNECTION_STRING");
 
         var mongoDbClient = new MongoClient(
             new MongoClientSettings
             {
-                Server = new MongoServerAddress(ConnectionString)
+                Server = new MongoServerAddress(сonnectionString)
             });
 
         optionBuilder.UseMongoDB(mongoDbClient, "Users");
