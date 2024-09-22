@@ -43,7 +43,7 @@ public class UpdateUserCommandHandlerTests
         // Assert
         await Assert.ThrowsAsync<NotFoundException>(
             testCode: async () =>
-                handler.HandleAsync(
+                await handler.HandleAsync(
                     id: Guid.NewGuid(),
                     email: UpdatedEmail,
                     professionList: new List<Profession>()));

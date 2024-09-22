@@ -53,7 +53,7 @@ public class DataPresentationTests
         await TestRunner.RunAsync(
             test: async () =>
             {
-                var randomUserEmail = ObjectGen.CreateEmail();
+                var randomUserEmail = ObjectGen.RandomEmail();
 
                 await this.SetupWithList(randomUserEmail);
 
@@ -92,7 +92,7 @@ public class DataPresentationTests
                     .CreateUserButton
                     .Click();
 
-                var randomUserEmail = ObjectGen.CreateEmail();
+                var randomUserEmail = ObjectGen.RandomEmail();
 
                 pageObject
                     .CreateUserEmailInput
@@ -120,7 +120,7 @@ public class DataPresentationTests
         await TestRunner.RunAsync(
             test: async () =>
             {
-                var randomUserEmail = ObjectGen.CreateEmail();
+                var randomUserEmail = ObjectGen.RandomEmail();
 
                 await this.SetupWithList(randomUserEmail);
 
@@ -134,7 +134,7 @@ public class DataPresentationTests
                     .EditUserButton
                     .Click();
 
-                var newRandomUserEmail = ObjectGen.CreateEmail();
+                var newRandomUserEmail = ObjectGen.RandomEmail();
 
                 pageObject
                     .EditUserEmailInput
@@ -166,7 +166,7 @@ public class DataPresentationTests
         await TestRunner.RunAsync(
             test: async () =>
             {
-                await this.SetupWithList(ObjectGen.CreateEmail());
+                await this.SetupWithList(ObjectGen.RandomEmail());
 
                 var pageObject = UserListPageObject
                     .NavigateToPageObject(

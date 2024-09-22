@@ -2,6 +2,7 @@ namespace Users.AcceptanceTests.Fixtures;
 
 using global::Users.Application.Interfaces;
 using global::Users.Application.Users.Commands.CreateUser;
+using global::Users.Application.Users.Commands.DeleteAllUsers;
 using global::Users.Application.Users.Commands.DeleteUser;
 using global::Users.Application.Users.Commands.UpdateUser;
 using global::Users.Application.Users.Queries.GetUserList;
@@ -10,17 +11,19 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.DevTools.V125.Debugger;
 
 public class SeleniumFixture
     : BaseFixture
 {
-    private Timer liveTimer;
-
     private bool disposed = false;
 
     public ServiceCollection ServiceCollection { get; }
 
+    public readonly ChromeDriver Driver;
+
     public SeleniumFixture()
+        : base(new Scope())
     {
         this.Driver = CreateDriver();
 
@@ -64,9 +67,12 @@ public class SeleniumFixture
             .ServiceCollection
             .AddSingleton<IGetUserListQueryHandler>(
                 new GetUserListQueryHandler(dbContext));
-    }
 
-    public ChromeDriver Driver { get; set; }
+        this
+            .ServiceCollection
+            .AddSingleton<IDeleteAllUsersCommandHandler>(
+                new DeleteAllUsersCommandHandler(dbContext));
+    }
 
     protected override void Dispose(bool disposing)
     {

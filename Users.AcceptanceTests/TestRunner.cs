@@ -11,7 +11,7 @@ public static class TestRunner
     public static void Run(
         Action test,
         IWebDriver seleniumDriver,
-        [CallerMemberName]string methodName = null)
+        [CallerMemberName]string methodName = "")
     {
         try
         {
@@ -29,12 +29,11 @@ public static class TestRunner
     public static async Task RunAsync(
         Func<Task> test,
         IWebDriver seleniumDriver,
-        [CallerMemberName]string methodName = null)
+        [CallerMemberName]string methodName = "")
     {
         try
         {
-            await test()
-                .ConfigureAwait(continueOnCapturedContext: false);
+            await test().ConfigureAwait(false);
         }
         catch
         {
@@ -49,7 +48,8 @@ public static class TestRunner
         IWebDriver seleniumDriver,
         string methodName)
     {
-        seleniumDriver.TakeScreenshot()
+        seleniumDriver
+            .TakeScreenshot()
             .SaveAsFile(
                 fileName: string.Concat(
                     arg0: methodName,

@@ -9,7 +9,12 @@ public static class DriverFactory
     public static ChromeDriver Build()
     {
         var chromeOptions = new ChromeOptions();
+
+        chromeOptions.AddArgument("--ignore-certificate-errors");
+        chromeOptions.AddArgument("--allow-insecure-localhost");
+
         var chromeLocation = Environment.GetEnvironmentVariable("ACCEPTANCE_TESTS_CHROME_LOCATION");
+
         if (!string.IsNullOrEmpty(chromeLocation))
         {
             chromeOptions.BinaryLocation = chromeLocation;

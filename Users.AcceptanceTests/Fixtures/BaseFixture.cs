@@ -2,8 +2,6 @@ namespace Users.AcceptanceTests.Fixtures;
 
     using System;
     using System.ComponentModel;
-    using System.Net;
-    using System.Reflection;
     using OpenQA.Selenium.DevTools.V125.Debugger;
 
     public abstract class BaseFixture
@@ -13,10 +11,10 @@ namespace Users.AcceptanceTests.Fixtures;
 
         public Scope Scope { get; }
 
-        protected BaseFixture()
+        protected BaseFixture(
+            Scope scope)
         {
-            var applicationName = Assembly.GetExecutingAssembly().GetName().Name;
-
+            this.Scope = scope;
             this.Container = new Container();
         }
 
@@ -24,9 +22,6 @@ namespace Users.AcceptanceTests.Fixtures;
         {
             this.Dispose();
         }
-
-
-        public static string TestSessionId => Environment.MachineName.Replace("-", string.Empty).ToLower() + "1";
 
         public Container Container { get; }
 
