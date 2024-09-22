@@ -2,7 +2,7 @@ image: mcr.microsoft.com/dotnet/sdk:8.0
 
 stages:
   - build
-  - test
+  - tests
   - release
 
 build:
@@ -10,11 +10,20 @@ build:
   tags:
    - msbuild17
   script:
-    - dotnet build
+    - dotnet build ./Users.WebApp/
 
-test:
-  stage: test
+acceptance-tests:
+  stage: tests
   tags:
     - msbuild17
   script:
-    - dotnet test
+    - dotnet build ./Users.WebApp/ -c Release
+    - dotnet ./Users.WebApp/bin/Release/net8.0/Users.WebApp.dll
+    - dotnet test ./Users.AcceptanceTests/
+
+unit-tests:
+  stage: tests
+  tags:
+    - msbuild17
+  script:
+    - dotnet test ./Users.UnitTests/
