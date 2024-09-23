@@ -11,16 +11,14 @@ variables:
 build:
   stage: build
   tags:
-    - msbuild17
-    - win-builder9
+    - swarm-build
   script:
     - dotnet build ./Users.WebApp/
 
 acceptance-tests:
   stage: tests
   tags:
-    - msbuild17
-    - win-builder9
+    - swarm-build
   script:
     - docker-compose -f docker-compose.yml up
     - dotnet test ./Users.AcceptanceTests/
@@ -29,7 +27,6 @@ acceptance-tests:
 unit-tests:
   stage: tests
   tags:
-    - msbuild17
-    - win-builder9
+    - swarm-build
   script:
     - dotnet test ./Users.UnitTests/
