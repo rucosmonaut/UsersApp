@@ -6,7 +6,7 @@ stages:
 
 
 variables:
-  UsersAppBaseUrl: "localhost:8081"
+  UsersAppBaseUrl: "https://localhost:8081/"
 
 build:
   stage: build
