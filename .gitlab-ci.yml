@@ -4,21 +4,23 @@ stages:
   - build
   - tests
 
-
 variables:
   UsersAppBaseUrl: "https://localhost:8081/"
 
 build:
   stage: build
   tags:
-    - swarm-build
+    - msbuild17
+    - win-builder9
   script:
     - dotnet build ./Users.WebApp/
 
 acceptance-tests:
   stage: tests
   tags:
-    - swarm-build
+    - msbuild17
+    - win-builder9
+
   script:
     - docker-compose -f docker-compose.yml up
     - dotnet test ./Users.AcceptanceTests/
@@ -27,6 +29,7 @@ acceptance-tests:
 unit-tests:
   stage: tests
   tags:
-    - swarm-build
+    - msbuild17
+    - win-builder9
   script:
     - dotnet test ./Users.UnitTests/
