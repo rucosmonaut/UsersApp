@@ -22,8 +22,7 @@ acceptance-tests:
     - msbuild17
     - win-builder9
   script:
-    - dotnet build ./Users.WebApp/ -c Release
-    - dotnet ./Users.WebApp/bin/Release/net8.0/Users.WebApp.dll
+    - docker-compose -f docker-compose.yml up
     - dotnet test ./Users.AcceptanceTests/
   allow_failure: true
 
@@ -33,5 +32,4 @@ unit-tests:
     - msbuild17
     - win-builder9
   script:
-    - docker-compose -f docker-compose.yml up
     - dotnet test ./Users.UnitTests/
