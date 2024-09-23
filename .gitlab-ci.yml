@@ -4,8 +4,9 @@ stages:
   - build
   - tests
 
+
 variables:
-  UsersAppBaseUrl:"localhost:8081"
+  UsersAppBaseUrl: "localhost:8081"
 
 build:
   stage: build
