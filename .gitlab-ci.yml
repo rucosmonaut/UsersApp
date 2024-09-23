@@ -1,18 +1,17 @@
-image: mcr.microsoft.com/dotnet/core/sdk:8.0
-
-services:
-- mongodb:latest
+image: mcr.microsoft.com/dotnet/sdk:8.0
 
 stages:
   - build
   - tests
-  - release
+
+variables:
+  UsersAppBaseUrl:"localhost:8081"
 
 build:
   stage: build
   tags:
-   - msbuild17
-   - win-builder9
+    - msbuild17
+    - win-builder9
   script:
     - dotnet build ./Users.WebApp/
 
@@ -33,4 +32,5 @@ unit-tests:
     - msbuild17
     - win-builder9
   script:
+    - docker-compose -f docker-compose.yml up
     - dotnet test ./Users.UnitTests/
