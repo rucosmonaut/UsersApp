@@ -14,4 +14,6 @@ public class BasePageObject
     protected string PageUrl => this.driver.Url;
 
     protected IWebDriver Driver => this.driver;
+
+    protected static string BaseUrl => Environment.GetEnvironmentVariable("UsersAppBaseUrl")!;
 }

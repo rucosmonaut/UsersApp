@@ -2,15 +2,35 @@ image: mcr.microsoft.com/dotnet/sdk:8.0
 
 stages:
   - build
-  - test
-  - release
+  - tests
+
+variables:
+  UsersAppBaseUrl:"localhost:8081"
 
 build:
   stage: build
+  tags:
+    - msbuild17
+    - win-builder9
   script:
-    - dotnet build
+    - dotnet build ./Users.WebApp/
 
-test:
-  stage: test
+acceptance-tests:
+  stage: tests
+  tags:
+    - msbuild17
+    - win-builder9
   script:
-    - dotnet test
+    - dotnet build ./Users.WebApp/ -c Release
+    - dotnet ./Users.WebApp/bin/Release/net8.0/Users.WebApp.dll
+    - dotnet test ./Users.AcceptanceTests/
+  allow_failure: true
+
+unit-tests:
+  stage: tests
+  tags:
+    - msbuild17
+    - win-builder9
+  script:
+    - docker-compose -f docker-compose.yml up
+    - dotnet test ./Users.UnitTests/
