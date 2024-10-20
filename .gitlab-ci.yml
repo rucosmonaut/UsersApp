@@ -51,8 +51,8 @@ acceptance-tests:
     - $APP_NAME="Users"
     - $SOURCE_DIR="${PWD}\_BuildOutput\$APP_NAME"
     - cmd /c $APPCMD add app /site.name:$WEB_SITE /path:/$APP_NAME /physicalpath:$SOURCE_DIR /applicationpool:$APP_POOL
-    - cmd /c $NUNIT_RUNNER $NUNIT_RUNNER_PARAMS.Split(" ") _BuildOutput\Users.AcceptanceTests\$NETFRAMEWORK_VERSION\Users.AcceptanceTests.dll
-    - cmd /c $XUNIT_RUNNER_WITH_REPORT_PORTAL _BuildOutput\Users.AcceptanceTests\$NETFRAMEWORK_VERSION\Users.AcceptanceTests.dll -parallel none
+    - cmd /c $NUNIT_RUNNER $NUNIT_RUNNER_PARAMS.Split(" ") _BuildOutput\Users.AcceptanceTests\Users.AcceptanceTests.dll
+    - cmd /c $XUNIT_RUNNER_WITH_REPORT_PORTAL _BuildOutput\Users.AcceptanceTests\Users.AcceptanceTests.dll -parallel none
 
   after_script:
     - iex "cmd /c $APPCMD stop apppool $APP_POOL"
