@@ -1,6 +1,7 @@
 services:
   mongo:
     image: mongo:latest
+    hostname: mongo
     ports:
       - "27017:27017"
   users.webapp:
@@ -10,3 +11,5 @@ services:
       dockerfile: Users.WebApp/Dockerfile
     depends_on:
       - mongo
+    command: /bin/bash -c "
+      dotnet test"

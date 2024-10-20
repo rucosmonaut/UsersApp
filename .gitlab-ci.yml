@@ -18,18 +18,7 @@ build:
 acceptance-tests:
   stage: tests
   tags:
-    - msbuild17
-    - win-builder9
-
+    - swarm-build
   script:
-    - docker-compose -f docker-compose.yml up
-    - dotnet test ./Users.AcceptanceTests/
+    - docker-compose -f docker-compose.yml up --force-recreate --abort-on-container-exit --exit-code-from ci-build
   allow_failure: true
-
-unit-tests:
-  stage: tests
-  tags:
-    - msbuild17
-    - win-builder9
-  script:
-    - dotnet test ./Users.UnitTests/
