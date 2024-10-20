@@ -7,18 +7,10 @@ stages:
 variables:
   UsersAppBaseUrl: "https://localhost:8081/"
 
-build:
+Build and test:
   stage: build
-  tags:
-    - msbuild17
-    - win-builder9
-  script:
-    - dotnet build ./Users.WebApp/
-
-acceptance-tests:
-  stage: tests
   tags:
     - swarm-build
   script:
-    - docker-compose -f docker-compose.yml up --force-recreate --abort-on-container-exit --exit-code-from ci-build
+    - docker-compose -f docker-compose.yml up --force-recreate --abort-on-container-exit --exit-code-from users.webapp
   allow_failure: true
