@@ -25,8 +25,11 @@ build:
   tags:
     - msbuild17
     - win-builder9
+  artifacts:
+    paths:
+      - _BuildOutput/Users.AcceptanceTests
   script:
-    - dotnet build ./Users.WebApp/
+    - cmd /c $MSBUILD17 Users\Users.sln "/t:Restore;Build" /m:4 "/p:Configuration=Release;AssemblyFileVersion=$VERSION" /v:q /nr:false
 
 acceptance-tests:
   stage: tests
