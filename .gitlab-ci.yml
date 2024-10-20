@@ -48,7 +48,8 @@ acceptance-tests:
     - cmd /c $APPCMD set app "$WEB_SITE/" /applicationPool:"$APP_POOL"
   script:
     - $APP_NAME="Users"
-    - $SOURCE_DIR="${PWD}\_BuildOutput\$APP_NAME"
+    - dotnet build Users.AcceptanceTests -o _BuildOutput.Users.WebApp
+    - $SOURCE_DIR="_BuildOutput.Users.WebApp"
     - cmd /c $APPCMD add app /site.name:$WEB_SITE /path:/$APP_NAME /physicalpath:$SOURCE_DIR /applicationpool:$APP_POOL
     - dotnet build Users.AcceptanceTests -o _BuildOutput.Users.AcceptanceTests
     - cmd /c $NUNIT_RUNNER $NUNIT_RUNNER_PARAMS.Split(" ") _BuildOutput.Users.AcceptanceTests\Users.AcceptanceTests.dll
