@@ -27,11 +27,11 @@ build:
     - win-builder9
   artifacts:
     paths:
-      - Users.WebApp\bin\Debug\$NETFRAMEWORK_VERSION\
-      - Users.AcceptanceTests\bin\Debug\$NETFRAMEWORK_VERSION\
+    - _BuildOutput/Users.WebApp
+    - _BuildOutput/Users.AcceptanceTests
   script:
-    - dotnet build Users.WebApp
-    - dotnet build Users.AcceptanceTests
+    - dotnet build Users.WebApp -o _BuildOutput/Users.WebApp
+    - dotnet build Users.AcceptanceTests -o _BuildOutput/Users.AcceptanceTests
 
 acceptance-tests:
   stage: tests
