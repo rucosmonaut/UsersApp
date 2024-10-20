@@ -27,8 +27,8 @@ build:
     - win-builder9
   artifacts:
     paths:
-      - _BuildOutput/Users.WebApp
-      - _BuildOutput/Users.AcceptanceTests
+      - Users.WebApp\bin\Debug\$NETFRAMEWORK_VERSION\
+      - Users.AcceptanceTests\bin\Debug\$NETFRAMEWORK_VERSION\
   script:
     - dotnet build Users.WebApp
     - dotnet build Users.AcceptanceTests
