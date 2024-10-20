@@ -30,7 +30,7 @@ build:
       - _BuildOutput/Users.AcceptanceTests
   script:
     - dotnet build Users.WebApp
-    - dotnet build Users.Users.AcceptanceTests
+    - dotnet build Users.AcceptanceTests
 
 acceptance-tests:
   stage: tests
