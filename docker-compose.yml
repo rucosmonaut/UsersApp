@@ -24,4 +24,6 @@ services:
       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
     command: /bin/bash -c "
-      dotnet test"
+      dotnet test &&
+      dotnet dev-certs https &&
+      dotnet dev-certs https --trust"
