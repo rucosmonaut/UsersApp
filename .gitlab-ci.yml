@@ -6,15 +6,28 @@ stages:
 
 variables:
   UsersAppBaseUrl: "https://localhost:8081/"
-  ASPNETCORE_ENVIRONMENT: "Development"
 
-before_script:
-  - dotnet dev-certs https --trust
-
-Build and test:
+build:
   stage: build
   tags:
-    - swarm-build
+    - msbuild17
+    - win-builder9
   script:
-    - docker-compose -f docker-compose.yml up --force-recreate --abort-on-container-exit --exit-code-from users.webapp
-  allow_failure: true
+    - dotnet build ./Users.WebApp/
+
+acceptance-tests:
+  stage: tests
+  tags:
+    - msbuild17
+    - win-builder9
+  script:
+    - docker-compose -f docker-compose.yml up
+    - dotnet test ./Users.AcceptanceTests/
+
+unit-tests:
+  stage: tests
+  tags:
+    - msbuild17
+    - win-builder9
+  script:
+    - dotnet test ./Users.UnitTests/
