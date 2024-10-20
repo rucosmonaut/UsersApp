@@ -5,7 +5,20 @@ stages:
   - tests
 
 variables:
-  UsersAppBaseUrl: "https://localhost:8081/"
+  UsersAppBaseUrl: "https://acceptancetests.local:443/"
+  MSBUILD: 'C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\MSBuild\15.0\Bin\msbuild.exe'
+  MSBUILD17: 'C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\MSBuild\Current\Bin\msbuild.exe'
+  NUNIT_RUNNER: 'C:\Program Files\NUnit.Console\nunit3-console.exe'
+  NUNIT_RUNNER_PARAMS: '--result=BuildScripts\Nunit\Report-Errors.txt;transform=BuildScripts\Nunit\Report-Errors-Template.xslt --result=BuildScripts\Nunit\Report-Full.xml'
+  XUNIT_RUNNER_WITH_REPORT_PORTAL: 'C:\Program Files\xunit-runner\bin\2.4.1\xunit.console.exe'
+  NETFRAMEWORK_VERSION: 'net8.0'
+  WEB_SITE: 'AcceptanceTests'
+  APP_POOL: 'AcceptanceTests'
+  CONFIGURATION: 'Release'
+  RETAILROCKET_ENV: 'test'
+  TEST_OVERTIME_DURATION_SECONDS: 10
+  APPCMD: 'C:\Windows\System32\inetsrv\appcmd'
+  ENDPOINT: 'https://acceptancetests.local:443'
 
 build:
   stage: build
@@ -20,9 +33,26 @@ acceptance-tests:
   tags:
     - msbuild17
     - win-builder9
+  before_script:
+    - iex "taskkill /f /t /im chrome.exe | taskkill /f /t /im chromedriver.exe"
+    - iex "cmd /c $APPCMD stop apppool $APP_POOL"
+    - iex "cmd /c $APPCMD delete apppool $APP_POOL"
+    - iex "cmd /c $APPCMD delete site $WEB_SITE"
+    - cmd /c $APPCMD add apppool /name:$APP_POOL
+    - cmd /c $APPCMD set config -section:system.applicationHost/applicationPools /+"[name='$APP_POOL'].environmentVariables.[name='RETAILROCKET_ENV',value='$RETAILROCKET_ENV']" /commit:apphost
+    - cmd /c $APPCMD add site /name:$WEB_SITE /bindings:$ENDPOINT /physicalPath:C:\inetpub\wwwroot
+    - cmd /c $APPCMD set app "$WEB_SITE/" /applicationPool:"$APP_POOL"
   script:
-    - docker-compose -f docker-compose.yml up
-    - dotnet test ./Users.AcceptanceTests/
+    - $APP_NAME="Users"
+    - $SOURCE_DIR="${PWD}\_BuildOutput\$APP_NAME"
+    - cmd /c $APPCMD add app /site.name:$WEB_SITE /path:/$APP_NAME /physicalpath:$SOURCE_DIR /applicationpool:$APP_POOL
+
+    - cmd /c $NUNIT_RUNNER $NUNIT_RUNNER_PARAMS.Split(" ") _BuildOutput\RetailRocket.AcceptanceTests\$NETFRAMEWORK_VERSION\Users.AcceptanceTests.dll
+    - cmd /c $XUNIT_RUNNER_WITH_REPORT_PORTAL _BuildOutput\RetailRocket.AcceptanceTests\$NETFRAMEWORK_VERSION\Users.AcceptanceTests.dll -parallel none
+
+  after_script:
+    - iex "cmd /c $APPCMD stop apppool $APP_POOL"
+    - iex "taskkill /f /t /im chrome.exe | taskkill /f /t /im chromedriver.exe"
 
 unit-tests:
   stage: tests
