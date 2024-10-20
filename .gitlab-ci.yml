@@ -6,6 +6,10 @@ stages:
 
 variables:
   UsersAppBaseUrl: "https://localhost:8081/"
+  ASPNETCORE_ENVIRONMENT: "Development"
+
+before_script:
+  - dotnet dev-certs https --trust
 
 Build and test:
   stage: build
