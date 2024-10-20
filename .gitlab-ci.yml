@@ -29,7 +29,7 @@ build:
     paths:
       - _BuildOutput/Users.AcceptanceTests
   script:
-    - cmd /c $MSBUILD17 Users\Users.sln "/t:Restore;Build" /m:4 "/p:Configuration=Release;AssemblyFileVersion=$VERSION" /v:q /nr:false
+    - cmd /c $MSBUILD17 Users.sln "/t:Restore;Build" /m:4 "/p:Configuration=Release;AssemblyFileVersion=$VERSION" /v:q /nr:false
 
 acceptance-tests:
   stage: tests
