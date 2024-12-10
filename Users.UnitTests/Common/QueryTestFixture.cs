@@ -15,7 +15,7 @@ public class QueryTestFixture
 
     public void Dispose()
     {
-        UsersContextFactory.Destroy(Context);
+        UsersContextFactory.Destroy(this.Context);
     }
 
     [CollectionDefinition("QueryCollection")]

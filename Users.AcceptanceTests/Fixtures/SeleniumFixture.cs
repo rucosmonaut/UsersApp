@@ -1,17 +1,16 @@
 namespace Users.AcceptanceTests.Fixtures;
 
-using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.DevTools.V125.Debugger;
 
-public class SeleniumFixture
+public abstract class SeleniumFixture
     : BaseFixture
 {
     private bool disposed = false;
 
     public readonly ChromeDriver Driver;
 
-    public SeleniumFixture()
+    protected SeleniumFixture()
         : base(new Scope())
     {
         this.Driver = CreateDriver();

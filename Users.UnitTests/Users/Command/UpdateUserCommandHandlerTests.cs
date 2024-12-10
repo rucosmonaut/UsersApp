@@ -13,7 +13,7 @@ public class UpdateUserCommandHandlerTests
     public async Task UpdateUserCommandHandler_Success()
     {
         // Arrange
-        var handler = new UpdateUserCommandHandler(Context);
+        var handler = new UpdateUserCommandHandler(this.Context);
         const string UpdatedEmail = "newemail@gmail.com";
 
         // Act
@@ -24,7 +24,8 @@ public class UpdateUserCommandHandlerTests
 
         // Assert
         Assert.NotNull(
-            @object: await Context
+            @object: await this
+                .Context
                 .Users
                 .SingleOrDefaultAsync(
                     predicate: user =>
@@ -36,7 +37,7 @@ public class UpdateUserCommandHandlerTests
     public async Task UpdateUserCommandHandler_FailOnWrongId()
     {
         // Arrange
-        var handler = new UpdateUserCommandHandler(Context);
+        var handler = new UpdateUserCommandHandler(this.Context);
         const string UpdatedEmail = "newemail@gmail.com";
 
         // Act

@@ -14,14 +14,14 @@ public class GetUsersListQueryHandlerTests
     public GetUsersListQueryHandlerTests(
         QueryTestFixture fixture)
     {
-        Context = fixture.Context;
+        this.Context = fixture.Context;
     }
 
     [Fact]
     public async Task GetUserListQueryHandler_Success()
     {
         // Arrange
-        var handler = new GetUserListQueryHandler(Context);
+        var handler = new GetUserListQueryHandler(this.Context);
 
         // Act
         var result = await handler.HandleAsync();

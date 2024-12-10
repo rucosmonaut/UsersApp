@@ -11,14 +11,15 @@ public class DeleteUserCommandHandlerTests
         public async Task DeleteUserCommandHandler_Success()
         {
             // Arrange
-            var handler = new DeleteUserCommandHandler(Context);
+            var handler = new DeleteUserCommandHandler(this.Context);
 
             // Act
             await handler.HandleAsync(UsersContextFactory.UserIdForDelete);
 
             // Assert
             Assert.Null(
-                @object: Context
+                @object: this
+                    .Context
                     .Users
                     .SingleOrDefault(user =>
                         user.Id == UsersContextFactory.UserIdForDelete));
@@ -28,7 +29,7 @@ public class DeleteUserCommandHandlerTests
         public async Task DeleteUserCommandHandler_FailOnWrongId()
         {
             // Arrange
-            var handler = new DeleteUserCommandHandler(Context);
+            var handler = new DeleteUserCommandHandler(this.Context);
 
             // Act
             // Assert
