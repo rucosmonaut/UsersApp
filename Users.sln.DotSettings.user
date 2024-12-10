@@ -1,8 +1,12 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AChromiumOptions_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003FUsers_003Filifr_003FAppData_003FRoaming_003FJetBrains_003FRider2024_002E2_003Fresharper_002Dhost_003FDecompilerCache_003Fdecompiler_003F51800cdcd6414fad9187caec22e53012493800_003F7f_003Feb90ebb6_003FChromiumOptions_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip2/=7020124F_002D9FFC_002D4AC3_002D8F3D_002DAAB8E0240759_002Ff_003AIFileInfo_002Ecs_002Fl_003A_002E_002E_003F_002E_002E_003FUsers_003Filifr_003FAppData_003FRoaming_003FJetBrains_003FRider2024_002E2_003Fresharper_002Dhost_003FDecompilerCache_003Fdecompiler_003F4d788c9f0fdf4ba2a3b7b34cf2f552f54638_003Fcc_003F02d466c6_003FIFileInfo_002Ecs/@EntryIndexedValue">ForceIncluded</s:String>
 	<s:Int64 x:Key="/Default/Environment/Hierarchy/Build/BuildTool/MsbuildVersion/@EntryValue">1114112</s:Int64>
 	<s:String x:Key="/Default/Environment/Hierarchy/Build/BuildTool/CustomBuildToolPath/@EntryValue">C:\Program Files\dotnet\sdk\8.0.400-preview.0.24324.5\MSBuild.dll</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e24461dd_002D9261_002D4078_002Dac8c_002D87b4bb64ed1e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;Tests&amp;gt;\&amp;lt;Users.AcceptanceTests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="C:\work\ИПР\Users\Users.AcceptanceTests" Presentation="&amp;lt;Tests&amp;gt;\&amp;lt;Users.AcceptanceTests&amp;gt;" /&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::A81A37DF-5E9D-421B-B737-573CD8FAC891::net8.0::Users.AcceptanceTests.Users.Applications.Users.Features.UserList.Tests.DataPresentationTests&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Presentation_002FUsers_002EWebApp_002FApplications_002FUser_002FFeatures_002FUserList_002FResources/@EntryIndexedValue">True</s:Boolean>

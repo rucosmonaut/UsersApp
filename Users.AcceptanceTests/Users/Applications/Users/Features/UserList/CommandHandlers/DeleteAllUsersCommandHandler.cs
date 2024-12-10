@@ -1,5 +1,6 @@
-namespace Users.Application.Users.Commands.DeleteAllUsers;
+namespace Users.AcceptanceTests.Users.Applications.Users.Features.UserList.CommandHandlers;
 
+using global::Users.AcceptanceTests.Users.Applications.Users.Features.UserList.Commands;
 using global::Users.Application.Interfaces;
 
 public class DeleteAllUsersCommandHandler

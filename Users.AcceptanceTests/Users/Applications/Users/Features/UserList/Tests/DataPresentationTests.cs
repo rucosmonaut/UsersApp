@@ -3,12 +3,10 @@ namespace Users.AcceptanceTests.Users.Applications.Users.Features.UserList.Tests
 using FluentAssertions;
 using global::Users.AcceptanceTests.Fixtures;
 using global::Users.AcceptanceTests.Helpers;
+using global::Users.AcceptanceTests.Users.Applications.Users.Features.UserList.Commands;
 using global::Users.Application.Users.Commands.CreateUser;
-using global::Users.Application.Users.Commands.DeleteUser;
-using global::Users.Application.Users.Queries.GetUserList;
 using global::Users.Domain;
 using Microsoft.Extensions.DependencyInjection;
-using RetailRocket.AcceptanceTests.PartnerOffice.V2.Applications.Documentation.Features.BehavioralMailingsDocumentation;
 using Xunit;
 
 [Collection(name: SeleniumFixtureCollection.Definition)]
@@ -23,12 +21,12 @@ public class DataPresentationTests
     }
 
     [Fact]
-    public async Task ShouldShowEmptyList()
+    public void ShouldShowEmptyList()
     {
-        await TestRunner.RunAsync(
-            test: async () =>
+        TestRunner.Run(
+            test: () =>
             {
-                await this.SetupWithEmptyList();
+                this.SetupWithEmptyList();
 
                 var pageObject = UserListPageObject
                     .NavigateToPageObject(
@@ -75,12 +73,12 @@ public class DataPresentationTests
     }
 
     [Fact]
-    public async Task ShouldCreateUser()
+    public void ShouldCreateUser()
     {
-        await TestRunner.RunAsync(
-            test: async () =>
+        TestRunner.Run(
+            test: () =>
             {
-                await this.SetupWithEmptyList();
+                this.SetupWithEmptyList();
 
                 var pageObject = UserListPageObject
                     .NavigateToPageObject(
@@ -148,6 +146,8 @@ public class DataPresentationTests
                     .EditUserFormButton
                     .Click();
 
+                Thread.Sleep(1000);
+
                 pageObject
                     .UserEmailLabel
                     .Text
@@ -195,7 +195,7 @@ public class DataPresentationTests
 
     private async Task SetupWithList(string userEmail)
     {
-        await this.ClearUserList();
+        this.ClearUserList();
 
         var serviceProvider = this
             .fixture
@@ -213,27 +213,20 @@ public class DataPresentationTests
                 });
     }
 
-    private async Task SetupWithEmptyList()
+    private void SetupWithEmptyList()
     {
-        await this.ClearUserList();
+        ClearUserList();
     }
 
-    private async Task ClearUserList()
+    private void ClearUserList()
     {
         var serviceProvider = this
             .fixture
             .ServiceCollection
             .BuildServiceProvider();
 
-        var userListVm = await serviceProvider
-            .GetRequiredService<IGetUserListQueryHandler>()
-            .HandleAsync();
-
-        var deleteUserCommandHandler = serviceProvider.GetRequiredService<IDeleteUserCommandHandler>();
-
-        foreach (var user in userListVm.Users)
-        {
-            await deleteUserCommandHandler.HandleAsync(user.Id);
-        }
+        serviceProvider
+            .GetRequiredService<IDeleteAllUsersCommandHandler>()
+            .Handle();
     }
 }

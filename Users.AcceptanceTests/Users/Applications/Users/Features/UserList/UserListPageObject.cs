@@ -1,7 +1,6 @@
-namespace RetailRocket.AcceptanceTests.PartnerOffice.V2.Applications.Documentation.Features.BehavioralMailingsDocumentation
+namespace Users.AcceptanceTests.Users.Applications.Users.Features.UserList
 {
     using OpenQA.Selenium;
-    using Users.AcceptanceTests.Users;
 
     public class UserListPageObject
         : BasePageObject
